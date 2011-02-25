@@ -10,3 +10,6 @@
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
 	url = git://github.com/m2ym/auto-complete.git
+[submodule "vendor/autocomplete"]
+	path = vendor/autocomplete
+	url = git://github.com/m2ym/auto-complete.git
