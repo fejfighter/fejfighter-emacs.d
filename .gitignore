@@ -1,4 +1,6 @@
 auto-save-list
+byte-cache
+session*
 *.elc
 *~
 *.tar.gz

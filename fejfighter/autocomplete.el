@@ -1,10 +1,12 @@
+(set 'myoptdir "~/.emacs.d/")
+
 (add-to-list 'load-path (concat myoptdir "AC"))
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
 (require 'auto-complete-clang)
 
-(setq ac-auto-start nil)
+;(setq ac-auto-start nil)
 (setq ac-quick-help-delay 0.5)
 ;; (ac-set-trigger-key "TAB")
 ;; (define-key ac-mode-map  [(control tab)] 'auto-complete)

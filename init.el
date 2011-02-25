@@ -12,6 +12,16 @@
 
 
 (vendor 'cmake-mode)
+
+(vendor 'auto-complete)
 (vendor 'auto-complete-clang)
+(load "fejfighter/autocomplete")
+
+(vendor 'color-theme)
+(vendor 'magit)
+(vendor 'yasnippet)
+
+
 ;(vendor 'clang-completion-mode)
 
+(message "Loaded configs correctly, Good Day Sir")
