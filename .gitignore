@@ -4,3 +4,4 @@ session*
 *.elc
 *~
 *.tar.gz
+*.dat
