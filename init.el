@@ -6,16 +6,22 @@
 ;compile for speed!
 ;(load "byte-code-cache")
 
+;make vendor code work
 (load "fejfighter/vendor")
+
+
 (load "fejfighter/ido")
 
-
-
-(vendor 'cmake-mode)
 
 (vendor 'auto-complete)
 (vendor 'auto-complete-clang)
 (load "fejfighter/autocomplete")
+
+(vendor 'flymake)
+(load "fejfighter/c-mode.el")
+
+(vendor 'cmake-mode)
+
 
 (vendor 'color-theme)
 (vendor 'magit)
