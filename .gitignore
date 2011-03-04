@@ -3,6 +3,7 @@ byte-cache
 session*
 .AppleDouble
 #*#
+*#*
 *.elc
 *~
 *.tar.gz
