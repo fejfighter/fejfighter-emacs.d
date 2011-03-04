@@ -2,6 +2,7 @@ auto-save-list
 byte-cache
 session*
 .AppleDouble
+#*#
 *.elc
 *~
 *.tar.gz
