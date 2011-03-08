@@ -12,9 +12,6 @@
 ;make vendor code work
 (load "fejfighter/vendor")
 
-; generic/global all conquering config
-(load fejfighter/generic.el)
-
 ; load packages from vendor (external
 ; then load relevant config for vendor
 
@@ -34,6 +31,7 @@
 
 (vendor 'yasnippet)
 
-
+; generic/global all conquering config
+(load "fejfighter/generic")
 
 (message "Loaded configs correctly, Good Day Sir")
