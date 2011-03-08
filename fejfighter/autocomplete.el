@@ -5,6 +5,7 @@
 (add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
 (require 'auto-complete-clang)
+(require 'ac-include)
 
 ;(setq ac-auto-start nil)
 (setq ac-quick-help-delay 0.5)

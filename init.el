@@ -17,6 +17,7 @@
 
 (vendor 'auto-complete)
 (vendor 'auto-complete-clang)
+(vendor 'ac-include)
 (load "fejfighter/autocomplete")
 
 (vendor 'cmake-mode)
