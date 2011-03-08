@@ -13,5 +13,6 @@
   (setq exec-path
 	'(;(getenv "PATH")
 	  "/opt/local/bin/"
+	  "/usr/local/bin/"
 	  )
 	))
