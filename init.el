@@ -12,8 +12,11 @@
 ;make vendor code work
 (load "fejfighter/vendor")
 
+; generic/global all conquering config
+(load fejfighter/generic.el)
 
-(load "fejfighter/ido")
+; load packages from vendor (external
+; then load relevant config for vendor
 
 (vendor 'auto-complete)
 (vendor 'auto-complete-clang)
@@ -25,8 +28,12 @@
 (vendor 'flymake)
 (load "fejfighter/c-mode.el")
 
+(load "fejfighter/ido")
+
 (vendor 'magit)
 
 (vendor 'yasnippet)
+
+
 
 (message "Loaded configs correctly, Good Day Sir")
