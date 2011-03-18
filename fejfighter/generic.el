@@ -11,13 +11,22 @@
 ; numbers!!
 (setq line-number-mode t)
 (setq column-number-mode t)
-(setq global-linum-mode t)
+(require 'linum)
+(global-linum-mode t)
 
+;parens
+(show-paren-mode t);
 
 ; init and set theme for emacs
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-classic) 
-
-
-
+(color-theme-twilight)
+ 
+; Open emacs maximized                                                                                                
+(defun toggle-fullscreen ()
+  (interactive)
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32       
+			 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32                
+			 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+)     

@@ -16,3 +16,4 @@
 [submodule "vendor/lua-mode"]
 	path = vendor/lua-mode
 	url = https://github.com/rrthomas/lua-mode
+
