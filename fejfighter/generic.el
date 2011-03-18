@@ -22,11 +22,7 @@
 (color-theme-initialize)
 (color-theme-twilight)
  
-; Open emacs maximized                                                                                                
-(defun toggle-fullscreen ()
-  (interactive)
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32       
-			 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32                
-			 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-)     
+
+; hide the menu bar and tool bar
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
