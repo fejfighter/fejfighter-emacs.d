@@ -17,6 +17,3 @@
 	path = vendor/lua-mode
 	url = https://github.com/rrthomas/lua-mode
 
-[submodule "vendor/auto-complete-clang"]
-	path = vendor/auto-complete-clang
-	url = git://github.com/mikeandmore/auto-complete-clang.git
