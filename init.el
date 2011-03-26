@@ -34,6 +34,8 @@
 
 (vendor 'todo)
 
+(vendor 'qmake-mode)
+
 (vendor 'yasnippet)
 
 ; generic/global all conquering config
