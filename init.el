@@ -39,7 +39,7 @@
 
 (vendor 'yasnippet)
 (vendor 'yas-jit)
-(load "fejfighter/yas-conf")
+(load "fejfighter/yasnippet-config")
 
 ; generic/global all conquering config
 (load "fejfighter/generic")

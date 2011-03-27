@@ -26,3 +26,8 @@
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
+
+; stippet
+(setq yas/trigger-key "TAB")
+(require 'yasnippet-config)
+(yas/setup "~/.emacs.d/vendor/yasnippet")
