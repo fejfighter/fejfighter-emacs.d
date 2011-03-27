@@ -30,3 +30,7 @@ and their terminal equivalents.")
 
 (global-set-key (kbd "M-<right>") 'select-next-window)
 (global-set-key (kbd "M-<left>")  'select-previous-window)
+
+;;for git
+
+(global-set-key (kbd "C-x C-g") 'magit-status)
