@@ -4,7 +4,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 ;compile for speed!
-;(load "byte-code-cache")
+
 
 ; add paths to make completion and other external stuff work
 (load "fejfighter/path")
@@ -29,6 +29,7 @@
 (load "fejfighter/c-mode.el")
 
 (load "fejfighter/ido")
+(load "fejfighter/keys")
 
 (vendor 'magit)
 
@@ -37,6 +38,8 @@
 (vendor 'qmake-mode)
 
 (vendor 'yasnippet)
+(vendor 'yas-jit)
+(load "fejfighter/yas-conf")
 
 ; generic/global all conquering config
 (load "fejfighter/generic")
