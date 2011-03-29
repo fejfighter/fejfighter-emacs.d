@@ -29,6 +29,7 @@
 (load "fejfighter/c-mode.el")
 
 (load "fejfighter/ido")
+(load "fejfighter/keys")
 
 (vendor 'magit)
 
