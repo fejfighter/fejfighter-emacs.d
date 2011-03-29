@@ -35,6 +35,8 @@
 
 (vendor 'todo)
 
+(vendor 'qmake-mode)
+
 (vendor 'yasnippet)
 (vendor 'yas-jit)
 (load "fejfighter/yas-conf")
