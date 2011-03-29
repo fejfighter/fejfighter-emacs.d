@@ -17,3 +17,6 @@
 	path = vendor/lua-mode
 	url = https://github.com/rrthomas/lua-mode
 
+[submodule "vendor/emacs-eclim"]
+	path = vendor/emacs-eclim
+	url = https://github.com/senny/emacs-eclim.git
