@@ -1,9 +1,12 @@
+
 ;
 (when (string-equal system-type "darwin")
   ;; used for compiling and calling stuff with eshell
   (setenv "PATH"
 	  (concat
-	   "/opt/local/bin/" ";"
+	   "/opt/local/bin/" ":"
+	   "/bin/" ":"
+	   "/usr/bin/" ":"
 	   (getenv "PATH")
 	   )
 	  )
@@ -14,5 +17,7 @@
 	'(;(getenv "PATH")
 	  "/opt/local/bin/"
 	  "/usr/local/bin/"
+	  "/bin/"
+	  "usr/bin/"
 	  )
 	))
