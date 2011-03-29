@@ -36,6 +36,7 @@
 (vendor 'todo)
 
 (vendor 'yasnippet)
+(load "fejfighter/yas-conf")
 
 ; generic/global all conquering config
 (load "fejfighter/generic")
