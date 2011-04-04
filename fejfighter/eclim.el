@@ -4,4 +4,4 @@
 (require 'eclim)
 
 (setq eclim-auto-save t)
-(global-eclim-mode)
+;(global-eclim-mode)

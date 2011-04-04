@@ -17,6 +17,8 @@
 ;parens
 (show-paren-mode t);
 
+
+
 ; init and set theme for emacs
 (require 'color-theme)
 (color-theme-initialize)
