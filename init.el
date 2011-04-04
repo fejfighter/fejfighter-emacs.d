@@ -26,16 +26,15 @@
 (load "fejfighter/color-theme-twilight")
 
 ;(vendor 'emacs-eclim)
-(load "fejfighter/eclim.el")
+;(load "fejfighter/eclim")
 
 (vendor 'flymake)
-(load "fejfighter/c-mode.el")
+(load "fejfighter/c-mode")
 
 (vendor 'hideshowvis)
 (vendor 'hideshow-org)
 
 (load "fejfighter/ido")
-(load "fejfighter/keys")
 
 (vendor 'magit)
 
@@ -49,6 +48,7 @@
 
 ; generic/global all conquering config
 (load "fejfighter/generic")
+(load "fejfighter/keys")
 
 (message "Loaded configs correctly, Good Day Sir")
 (custom-set-variables
