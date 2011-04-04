@@ -31,6 +31,9 @@
 (vendor 'flymake)
 (load "fejfighter/c-mode.el")
 
+(vendor 'hideshowvis)
+(vendor 'hideshow-org)
+
 (load "fejfighter/ido")
 (load "fejfighter/keys")
 

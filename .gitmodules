@@ -20,3 +20,6 @@
 [submodule "vendor/emacs-eclim"]
 	path = vendor/emacs-eclim
 	url = https://github.com/senny/emacs-eclim.git
+[submodule "vendor/hideshow-org"]
+	path = vendor/hideshow-org
+	url = https://github.com/secelis/hideshow-org.git
