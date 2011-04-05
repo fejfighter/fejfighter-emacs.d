@@ -1,3 +1,4 @@
+
 ;
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -32,7 +33,8 @@
 (load "fejfighter/c-mode")
 
 (vendor 'hideshowvis)
-(vendor 'hideshow-org)
+;(vendor 'hideshow-org)
+(load "fejfighter/folding")
 
 (load "fejfighter/ido")
 
