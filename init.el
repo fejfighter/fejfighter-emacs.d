@@ -1,3 +1,4 @@
+
 ;
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -25,14 +26,15 @@
 (vendor 'color-theme)
 (load "fejfighter/color-theme-twilight")
 
-;(vendor 'emacs-eclim)
-;(load "fejfighter/eclim")
+(vendor 'emacs-eclim)
+(load "fejfighter/eclim")
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
 
 (vendor 'hideshowvis)
 (vendor 'hideshow-org)
+(load "fejfighter/folding")
 
 (load "fejfighter/ido")
 

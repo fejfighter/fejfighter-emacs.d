@@ -1,7 +1,7 @@
 ;folding
 ;; hideshow for programming
 (load-library "hideshow")
-(require 'hideshow-org)
+;(require 'hideshow-org)
 
 (add-hook 'java-mode-hook 'hs-minor-mode)
 (add-hook 'perl-mode-hook 'hs-minor-mode)
