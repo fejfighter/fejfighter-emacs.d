@@ -21,6 +21,6 @@
 	  "/usr/local/bin/"
 	  "/usr/local/git/bin/"
 	  "/bin/"
-	  "usr/bin/"
+	  "/usr/bin/"
 	  )
 	))

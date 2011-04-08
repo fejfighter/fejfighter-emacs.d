@@ -26,8 +26,8 @@
 (vendor 'color-theme)
 (load "fejfighter/color-theme-twilight")
 
-(vendor 'emacs-eclim)
-(load "fejfighter/eclim")
+;(vendor 'emacs-eclim)
+;xs(load "fejfighter/eclim")
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
