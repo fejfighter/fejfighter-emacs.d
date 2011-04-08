@@ -18,7 +18,8 @@
 (show-paren-mode t);
 
 ;remove the curser when its not being used
-(mouse-avoidance-mode banish)
+(mouse-avoidance-mode t)
+(mouse-avoidance-banish)
 
 ; init and set theme for emacs
 (require 'color-theme)
