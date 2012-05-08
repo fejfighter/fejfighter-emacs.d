@@ -22,3 +22,6 @@
 [submodule "vendor/cedet"]
 	path = vendor/cedet
 	url = https://github.com/emacsmirror/cedet.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = https://github.com/blueabysm/ecb.git
