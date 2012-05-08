@@ -16,18 +16,17 @@
 
 ;(load "fejfighter/auctex")
 
+(vendor 'popup)
+(vendor 'fuzzy)
 (vendor 'auto-complete)
 (vendor 'auto-complete-clang)
-(vendor 'ac-include)
+
 (load "fejfighter/autocomplete")
 
 (vendor 'cmake-mode)
 (load "fejfighter/cmake")
 (vendor 'color-theme)
 (load "fejfighter/color-theme-twilight")
-
-;(vendor 'emacs-eclim)
-;xs(load "fejfighter/eclim")
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
@@ -47,7 +46,7 @@
 (vendor 'qmake-mode)
 
 (vendor 'yasnippet)
-(vendor 'yas-jit)
+;(vendor 'yas-jit)
 (load "fejfighter/yasnippet-config")
 
 ; generic/global all conquering config
