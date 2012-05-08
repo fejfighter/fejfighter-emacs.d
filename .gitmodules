@@ -19,3 +19,6 @@
 [submodule "vendor/fuzzy"]
 	path = vendor/fuzzy
 	url = https://github.com/m2ym/fuzzy-el.git
+[submodule "vendor/cedet"]
+	path = vendor/cedet
+	url = https://github.com/emacsmirror/cedet.git
