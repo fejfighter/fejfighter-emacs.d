@@ -1,16 +1,16 @@
 ; no tabs, but indent with 4 spaces
-(setq c-mode-hook
-    (function (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq c-indent-level 4))))
+;(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+(setq c-default-style "Stroustrup"
+      c-basic-offset 4)
+                
 (setq objc-mode-hook
     (function (lambda ()
                 (setq indent-tabs-mode nil)
                 (setq c-indent-level 4))))
 (setq c++-mode-hook
-    (function (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq c-indent-level 4))))
+      (function (lambda ()
+		  (setq indent-tabs-mode nil)
+		  ((setq  )etq c-indent-level 4))))
 
 (add-hook 'c++-mode-hook
   '(lambda ( )

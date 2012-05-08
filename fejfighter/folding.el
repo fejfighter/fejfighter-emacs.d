@@ -2,14 +2,6 @@
 ;; hideshow for programming
 (load-library "hideshow")
 (require 'hideshow-org)
-<<<<<<< HEAD
-=======
-
-;(defun hs-load
-;  ('hs-minor-mode t)
-;  ('hs-org/minor-mode t)
-;)
->>>>>>> c68a086d983a2c0c9170b49f2a001e062201b38d
 
 (add-hook 'cc-mode-hook 'hs-minor-mode)
 (add-hook 'java-mode-hook 'hs-minor-mode)

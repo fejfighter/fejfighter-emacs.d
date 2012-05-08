@@ -16,13 +16,15 @@
 ; load packages from vendor (external
 ; then load relevant config for vendor
 
+;(load "fejfighter/auctex")
+
 (vendor 'auto-complete)
 (vendor 'auto-complete-clang)
 (vendor 'ac-include)
 (load "fejfighter/autocomplete")
 
 (vendor 'cmake-mode)
-
+(load "fejfighter/cmake")
 (vendor 'color-theme)
 (load "fejfighter/color-theme-twilight")
 
@@ -31,6 +33,8 @@
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
+
+(vendor 'haskell-mode)
 
 (vendor 'hideshowvis)
 (vendor 'hideshow-org)
