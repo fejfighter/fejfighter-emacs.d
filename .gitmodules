@@ -10,3 +10,12 @@
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
 	url = https://github.com/m2ym/auto-complete.git
+[submodule "vendor/auto-complete-clang"]
+	path = vendor/auto-complete-clang
+	url = https://github.com/YorkZ/auto-complete-clang.git
+[submodule "vendor/popup"]
+	path = vendor/popup
+	url = https://github.com/m2ym/popup-el.git
+[submodule "vendor/fuzzy"]
+	path = vendor/fuzzy
+	url = https://github.com/m2ym/fuzzy-el.git
