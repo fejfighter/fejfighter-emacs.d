@@ -1,19 +1,9 @@
-
 [submodule "vendor/magit"]
 	path = vendor/magit
 	url = git://github.com/philjackson/magit.git
 [submodule "vendor/yasnippet"]
 	path = vendor/yasnippet
 	url = https://github.com/emacsmirror/yasnippet.git
-[submodule "vendor/color-theme"]
-	path = vendor/color-theme
-	url = git://github.com/emacsmirror/color-theme.git
-[submodule "vendor/lua-mode"]
-	path = vendor/lua-mode
-	url = https://github.com/rrthomas/lua-mode
-[submodule "vendor/emacs-eclim"]
-	path = vendor/emacs-eclim
-	url = https://github.com/senny/emacs-eclim.git
 [submodule "vendor/hideshow-org"]
 	path = vendor/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
