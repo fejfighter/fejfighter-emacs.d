@@ -23,10 +23,6 @@
 
 (load "fejfighter/autocomplete")
 
-(vendor 'cmake-mode)
-(load "fejfighter/cmake")
-(vendor 'color-theme)
-(load "fejfighter/color-theme-twilight")
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")

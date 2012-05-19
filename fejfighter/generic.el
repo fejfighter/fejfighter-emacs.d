@@ -22,10 +22,7 @@
 ;(mouse-avoidance-banish)
 
 ; init and set theme for emacs
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-twilight)
- 
+(load-theme 'tango-dark) 
 
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
