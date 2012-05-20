@@ -23,7 +23,8 @@
 
 ;(load "fejfighter/autocomplete")
 (load "fejfighter/cedet")
-
+(vendor 'ecb)
+;(vendor 'jdee)
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
