@@ -28,3 +28,6 @@
 [submodule "vendor/lua-mode"]
 	path = vendor/lua-mode
 	url = git://github.com/immerrr/lua-mode.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = git://github.com/alexott/ecb.git
