@@ -19,3 +19,6 @@
 [submodule "vendor/fuzzy"]
 	path = vendor/fuzzy
 	url = https://github.com/m2ym/fuzzy-el.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = git://github.com/alexott/ecb.git
