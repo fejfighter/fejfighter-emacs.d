@@ -22,9 +22,6 @@
 [submodule "vendor/cedet"]
 	path = vendor/cedet
 	url = https://github.com/emacsmirror/cedet.git
-[submodule "vendor/ecb"]
-	path = vendor/ecb
-	url = https://github.com/blueabysm/ecb.git
 [submodule "vendor/jdee"]
 	path = vendor/jdee
 	url = git://github.com/jkl1337/jdee.git
