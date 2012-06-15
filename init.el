@@ -16,22 +16,20 @@
 
 ;(load "fejfighter/auctex")
 
-(vendor 'popup)
-(vendor 'fuzzy)
-(vendor 'auto-complete)
-(vendor 'auto-complete-clang)
+;(vendor 'popup)
+;(vendor 'fuzzy)
+;(vendor 'auto-complete)
+;(vendor 'auto-complete-clang)
 
-(load "fejfighter/autocomplete")
-
-(vendor 'cmake-mode)
-(load "fejfighter/cmake")
-(vendor 'color-theme)
-(load "fejfighter/color-theme-twilight")
+;(load "fejfighter/autocomplete")
+(load "fejfighter/cedet")
+(vendor 'ecb)
+;(vendor 'jdee)
 
 (vendor 'flymake)
 (load "fejfighter/c-mode")
 
-(vendor 'haskell-mode)
+;(vendor 'haskell-mode)
 
 (vendor 'hideshowvis)
 (vendor 'hideshow-org)
@@ -39,11 +37,14 @@
 
 (load "fejfighter/ido")
 
+(vendor 'lua-mode)
+(load "fejfighter/lua-mode")
+
 (vendor 'magit)
 
 (vendor 'todo)
 
-(vendor 'qmake-mode)
+;(vendor 'qmake-mode)
 
 (vendor 'yasnippet)
 ;(vendor 'yas-jit)
@@ -54,15 +55,15 @@
 (load "fejfighter/keys")
 
 (message "Loaded configs correctly, Good Day Sir")
-(custom-set-variables
+;(custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((clang-completion-flags "-I/usr/include/QtCore\",\"-I/usr/include/QtSql\"\"-I/usr/include")))))
-(custom-set-faces
+; '(safe-local-variable-values (quote ((clang-completion-flags "-I/usr/include/QtCore\",\"-I/usr/include/QtSql\"\"-I/usr/include")))))
+;(custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(linum ((t (:background "#141314" :foreground "#ff9B4E")))))
+; '(linum ((t (:background "#141314" :foreground "#ff9B4E")))))

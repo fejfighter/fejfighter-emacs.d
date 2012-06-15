@@ -19,3 +19,15 @@
 [submodule "vendor/fuzzy"]
 	path = vendor/fuzzy
 	url = https://github.com/m2ym/fuzzy-el.git
+[submodule "vendor/cedet"]
+	path = vendor/cedet
+	url = https://github.com/emacsmirror/cedet.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = https://github.com/blueabysm/ecb.git
+[submodule "vendor/jdee"]
+	path = vendor/jdee
+	url = git://github.com/jkl1337/jdee.git
+[submodule "vendor/lua-mode"]
+	path = vendor/lua-mode
+	url = git://github.com/immerrr/lua-mode.git
