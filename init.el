@@ -29,13 +29,16 @@
 (vendor 'flymake)
 (load "fejfighter/c-mode")
 
-(vendor 'haskell-mode)
+;(vendor 'haskell-mode)
 
 (vendor 'hideshowvis)
 (vendor 'hideshow-org)
 (load "fejfighter/folding")
 
 (load "fejfighter/ido")
+
+(vendor 'lua-mode)
+(load "fejfighter/lua-mode")
 
 (vendor 'magit)
 
