@@ -1,6 +1,6 @@
 [submodule "vendor/magit"]
 	path = vendor/magit
-	url = git://github.com/philjackson/magit.git
+	url = https://github.com/philjackson/magit.git
 [submodule "vendor/yasnippet"]
 	path = vendor/yasnippet
 	url = https://github.com/emacsmirror/yasnippet.git
@@ -24,10 +24,10 @@
 	url = https://github.com/emacsmirror/cedet.git
 [submodule "vendor/jdee"]
 	path = vendor/jdee
-	url = git://github.com/jkl1337/jdee.git
+	url = https://github.com/jkl1337/jdee.git
 [submodule "vendor/lua-mode"]
 	path = vendor/lua-mode
-	url = git://github.com/immerrr/lua-mode.git
+	url = https://github.com/immerrr/lua-mode.git
 [submodule "vendor/ecb"]
 	path = vendor/ecb
-	url = git://github.com/alexott/ecb.git
+	url = https://github.com/alexott/ecb.git

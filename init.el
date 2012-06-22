@@ -1,4 +1,4 @@
-
+(load-file "~/.emacs.d/vendor/cedet/cedet-devel-load.el")
 ;
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -22,8 +22,8 @@
 ;(vendor 'auto-complete-clang)
 
 ;(load "fejfighter/autocomplete")
-(load "fejfighter/cedet")
-(vendor 'ecb)
+;(load "fejfighter/cedet")
+;(vendor 'ecb)
 ;(vendor 'jdee)
 
 (vendor 'flymake)
