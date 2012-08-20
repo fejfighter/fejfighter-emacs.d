@@ -9,3 +9,7 @@ session*
 *.tar.gz
 *.dat
 tramp
+srecode*
+semanticdb
+eshell
+elpa
