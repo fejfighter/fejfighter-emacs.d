@@ -1,6 +1,6 @@
 (load-file "~/.emacs.d/vendor/cedet/cedet-devel-load.el")
-(add-to-list 'load-path "~/.emacs.d/vendor/mmm")
-(load "~/.emacs.d/vendor/mmm/mmm-auto.el")
+;(add-to-list 'load-path "~/.emacs.d/vendor/mmm")
+;(load "~/.emacs.d/vendor/mmm/mmm-auto.el")
 
 ;
 
@@ -48,7 +48,7 @@
 ;(vendor 'mmm)
 
 
-(vendor 'slime)
+;(vendor 'slime)
 
 (vendor 'todo)
 
