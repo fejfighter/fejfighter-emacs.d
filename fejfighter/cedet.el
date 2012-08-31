@@ -1,5 +1,6 @@
 ;;; emacs-rc-cedet.el ---
 
+
 ;(load-file "~/.emacs.d/vendor/cedet/cedet-devel-load.el")
 ;(add-to-list 'load-path "~/.emacs.d/vendor/cedet/contrib/")
 ;(add-to-list  'Info-directory-list "~/.emacs.d/vendor/cedet/doc/info")
@@ -21,10 +22,12 @@
 
 (require 'semantic/bovine/c)
 (require 'semantic/bovine/gcc)
-;(require 'semantic/bovine/clang)
+(require 'semantic/bovine/clang)
 (require 'semantic/ia)
 (require 'semantic/decorate/include)
 (require 'semantic/lex-spp)
+(require 'semantic/java)
+(require 'semantic/db-javap)
 ;(require 'eassist)
 
 ;(semanticdb-enable-gnu-global-databases 'c-mode t)
@@ -34,7 +37,7 @@
 ;  (semantic-load-enable-primary-ectags-support))
 
 ;; SRecode
-;(global-srecode-minor-mode 1)
+(global-srecode-minor-mode 1)
 
 ;; EDE
 ;(global-ede-mode 1)

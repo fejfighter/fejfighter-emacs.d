@@ -19,14 +19,15 @@
 
 ;(load "fejfighter/auctex")
 
-;(vendor 'popup)
-;(vendor 'fuzzy)
-;(vendor 'auto-complete)
+(vendor 'popup)
+(vendor 'fuzzy)
+(vendor 'auto-complete)
 ;(vendor 'auto-complete-clang)
 
-;(load "fejfighter/autocomplete")
-;(load "fejfighter/cedet")
-;(vendor 'ecb)
+(load "fejfighter/autocomplete")
+(load "fejfighter/cedet")
+(load "fejfighter/java-mode")
+(vendor 'ecb)
 ;(vendor 'jdee)
 
 (vendor 'flymake)
