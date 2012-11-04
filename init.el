@@ -19,10 +19,18 @@
 
 ;(load "fejfighter/auctex")
 
+;slime
+(add-to-list 'load-path "~/.emacs.d/vendor/slime")  ; your SLIME directory
+(setq inferior-lisp-program "/opt/local/bin/clisp -K full") ; your Lisp system
+(require 'slime)
+(slime-setup '(slime-fancy))
+
+
 (vendor 'popup)
 (vendor 'fuzzy)
 (vendor 'auto-complete)
 ;(vendor 'auto-complete-clang)
+(vendor 'ac-slime)
 
 (load "fejfighter/autocomplete")
 (load "fejfighter/cedet")
@@ -76,3 +84,15 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
 ; '(linum ((t (:background "#141314" :foreground "#ff9B4E")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ede-project-directories (quote ("/Users/fejfighter/dev/ede"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
