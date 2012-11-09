@@ -31,9 +31,6 @@
 [submodule "vendor/slime"]
 	path = vendor/slime
 	url = git://github.com/nablaone/slime.git
-[submodule "vendor/mmm"]
-	path = vendor/mmm
-	url = git://github.com/purcell/mmm-mode.git
 [submodule "vendor/ac-slime"]
 	path = vendor/ac-slime
 	url = git://github.com/purcell/ac-slime.git
