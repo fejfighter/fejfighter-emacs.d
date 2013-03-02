@@ -1,6 +1,6 @@
 ; load CEDET first, it cracks the shits if you don't
 ;(load-file "~/.emacs.d/cedet/cedet-devel-load.el")
-(setq debug-on-error t)
+;(setq debug-on-error t)
 
 (require 'package)
 
