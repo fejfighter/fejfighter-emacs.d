@@ -17,12 +17,12 @@
 
 (require 'semantic/bovine/c)
 (require 'semantic/bovine/gcc)
-(require 'semantic/bovine/clang)
+;(require 'semantic/bovine/clang)
 (require 'semantic/ia)
 (require 'semantic/decorate/include)
 (require 'semantic/lex-spp)
 (require 'semantic/java)
-(require 'semantic/db-javap)
+;(require 'semantic/db-javap)
 ;(require 'eassist)
 
 ;(semanticdb-enable-gnu-global-databases 'c-mode t)
@@ -32,7 +32,7 @@
 ;  (semantic-load-enable-primary-ectags-support))
 
 ;; SRecode
-(global-srecode-minor-mode 1)
+;(global-srecode-minor-mode 1)
 
 ;; EDE
 ;(global-ede-mode 1)

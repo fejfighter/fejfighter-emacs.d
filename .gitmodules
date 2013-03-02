@@ -1,39 +1,3 @@
-[submodule "vendor/magit"]
-	path = vendor/magit
-	url = git://github.com/philjackson/magit.git
-[submodule "vendor/yasnippet"]
-	path = vendor/yasnippet
-	url = git://github.com/emacsmirror/yasnippet.git
-[submodule "vendor/hideshow-org"]
-	path = vendor/hideshow-org
-	url = git://github.com/secelis/hideshow-org.git
-[submodule "vendor/auto-complete"]
-	path = vendor/auto-complete
-	url = git://github.com/auto-complete/auto-complete.git
-[submodule "vendor/auto-complete-clang"]
-	path = vendor/auto-complete-clang
-	url = git://github.com/YorkZ/auto-complete-clang.git
-[submodule "vendor/popup"]
-	path = vendor/popup
-	url = git://github.com/auto-complete/popup-el.git
-[submodule "vendor/fuzzy"]
-	path = vendor/fuzzy
-	url = git://github.com/auto-complete/fuzzy-el.git
-[submodule "vendor/cedet"]
-	path = vendor/cedet
-	url = git://github.com/emacsmirror/cedet.git
-[submodule "vendor/lua-mode"]
-	path = vendor/lua-mode
-	url = git://github.com/immerrr/lua-mode.git
 [submodule "vendor/ecb"]
 	path = vendor/ecb
 	url = git://github.com/alexott/ecb.git
-[submodule "vendor/slime"]
-	path = vendor/slime
-	url = git://github.com/nablaone/slime.git
-[submodule "vendor/ac-slime"]
-	path = vendor/ac-slime
-	url = git://github.com/purcell/ac-slime.git
-[submodule "vendor/android-mode"]
-	path = vendor/android-mode
-	url = https://github.com/remvee/android-mode.git

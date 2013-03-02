@@ -2,7 +2,7 @@
 
 (add-to-list 'load-path (concat myoptdir "AC"))
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
+;(add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
 
 ;(setq ac-auto-start nil)
