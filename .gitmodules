@@ -34,3 +34,6 @@
 [submodule "vendor/ac-slime"]
 	path = vendor/ac-slime
 	url = git://github.com/purcell/ac-slime.git
+[submodule "vendor/android-mode"]
+	path = vendor/android-mode
+	url = https://github.com/remvee/android-mode.git

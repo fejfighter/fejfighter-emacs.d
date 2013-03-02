@@ -1,10 +1,5 @@
 ;;; emacs-rc-cedet.el ---
 
-
-;(load-file "~/.emacs.d/vendor/cedet/cedet-devel-load.el")
-;(add-to-list 'load-path "~/.emacs.d/vendor/cedet/contrib/")
-;(add-to-list  'Info-directory-list "~/.emacs.d/vendor/cedet/doc/info")
-
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
@@ -49,4 +44,8 @@
 (setq compilation-scroll-output t)
 (setq mode-compile-always-save-buffer-p t)
 
+;; android
+;(cedet-android-sdk-root /opt/homebrew/Cellar/android-sdk/r20.0.3)
+
 ;;; emacs-rc-cedet.el ends here
+

@@ -1,11 +1,19 @@
 ;(setq java-mode-hook
 
+(require 'cedet-java)
+(require 'cedet-android)
 
 (semantic-load-enable-gaudy-code-helpers)
 
 '(cedet-java-jdk-root "/usr/lib/jvm/java-7-openjdk/")
 
+(setq cedet-android-sdk-root "/opt/homebrew/Cellar/android-sdk/r20.0.3")
+(setq cedet-android-sdk-jar "/opt/homebrew/Cellar/android-sdk/r20.0.3/platforms/android-4.1.2/android.jar")
+(setq cedet-android-current-version "4.1.2")
+
 '(semanticdb-javap-classpath '("/usr/lib/jvm/java-7-openjdk/jre/lib/rt.jar"))
+
+
 
 '(cedet-java-command "java")
 '(cedet-javap-command "javap")
