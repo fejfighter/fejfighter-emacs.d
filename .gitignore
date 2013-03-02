@@ -9,3 +9,9 @@ session*
 *.tar.gz
 *.dat
 tramp
+srecode*
+semanticdb
+eshell
+elpa
+url
+ede-projects.el

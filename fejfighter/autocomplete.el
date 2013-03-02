@@ -4,7 +4,6 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
-(require 'auto-complete-clang)
 
 ;(setq ac-auto-start nil)
 (setq ac-quick-help-delay 0.5)
@@ -19,8 +18,20 @@
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t))
+
 (defun my-ac-cc-mode-setup ()
-  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+  (add-to-list 'ac-omni-completion-sources
+	       (cons "\\." '(ac-source-semantic)))
+  (add-to-list 'ac-omni-completion-sources
+	       (cons "->" '(ac-source-semantic)))
+  (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet) ac-sources)))
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+
+
 ;; ac-source-gtags
 (my-ac-config)

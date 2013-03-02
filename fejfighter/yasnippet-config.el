@@ -1,4 +1,5 @@
 
+
 ;;; Code:
 
 
@@ -10,7 +11,7 @@
   ;; Ensure to end with /
   (setq package-directory (file-name-as-directory package-directory))
   (add-to-list 'load-path package-directory)
-  (yas/initialize)
+  (yas/global-mode 1)
   (yas/load-directory (concat package-directory "snippets")))
 
 

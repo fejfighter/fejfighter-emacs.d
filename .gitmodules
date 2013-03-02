@@ -3,19 +3,37 @@
 	url = git://github.com/philjackson/magit.git
 [submodule "vendor/yasnippet"]
 	path = vendor/yasnippet
-	url = https://github.com/emacsmirror/yasnippet.git
+	url = git://github.com/emacsmirror/yasnippet.git
 [submodule "vendor/hideshow-org"]
 	path = vendor/hideshow-org
-	url = https://github.com/secelis/hideshow-org.git
+	url = git://github.com/secelis/hideshow-org.git
 [submodule "vendor/auto-complete"]
 	path = vendor/auto-complete
-	url = https://github.com/m2ym/auto-complete.git
+	url = git://github.com/auto-complete/auto-complete.git
 [submodule "vendor/auto-complete-clang"]
 	path = vendor/auto-complete-clang
-	url = https://github.com/YorkZ/auto-complete-clang.git
+	url = git://github.com/YorkZ/auto-complete-clang.git
 [submodule "vendor/popup"]
 	path = vendor/popup
-	url = https://github.com/m2ym/popup-el.git
+	url = git://github.com/auto-complete/popup-el.git
 [submodule "vendor/fuzzy"]
 	path = vendor/fuzzy
-	url = https://github.com/m2ym/fuzzy-el.git
+	url = git://github.com/auto-complete/fuzzy-el.git
+[submodule "vendor/cedet"]
+	path = vendor/cedet
+	url = git://github.com/emacsmirror/cedet.git
+[submodule "vendor/lua-mode"]
+	path = vendor/lua-mode
+	url = git://github.com/immerrr/lua-mode.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = git://github.com/alexott/ecb.git
+[submodule "vendor/slime"]
+	path = vendor/slime
+	url = git://github.com/nablaone/slime.git
+[submodule "vendor/ac-slime"]
+	path = vendor/ac-slime
+	url = git://github.com/purcell/ac-slime.git
+[submodule "vendor/android-mode"]
+	path = vendor/android-mode
+	url = https://github.com/remvee/android-mode.git

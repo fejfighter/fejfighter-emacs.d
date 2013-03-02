@@ -22,5 +22,7 @@
 	  "/usr/local/git/bin/"
 	  "/bin/"
 	  "/usr/bin/"
+	  "/usr/texbin/"
+	  "/opt/homebrew/bin/"
 	  )
 	))
