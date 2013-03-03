@@ -2,7 +2,7 @@
 
 (add-to-list 'load-path (concat myoptdir "AC"))
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
+;(add-to-list 'ac-dictionary-directories (concat myoptdir "AC/ac-dict"))
 
 
 ;(setq ac-auto-start nil)
@@ -26,6 +26,11 @@
 	       (cons "->" '(ac-source-semantic)))
   (setq ac-sources (append '(ac-source-semantic ac-source-yasnippet) ac-sources)))
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
 
 
 ;; ac-source-gtags

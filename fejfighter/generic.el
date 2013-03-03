@@ -29,6 +29,6 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
 
 ; stippet
-(setq yas/trigger-key "TAB")
-(require 'yasnippet-config)
-(yas/setup "~/.emacs.d/vendor/yasnippet")
+;(setq yas/trigger-key "TAB")
+;(require 'yasnippet-config)
+;(yas/setup "~/.emacs.d/vendor/yasnippet")
