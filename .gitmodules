@@ -21,7 +21,7 @@
 	url = https://github.com/auto-complete/fuzzy-el.git
 [submodule "vendor/cedet"]
 	path = vendor/cedet
-	url = https://github.com/emacsmirror/cedet.git
+	url = git@github.com:fejfighter/cedet.git
 [submodule "vendor/jdee"]
 	path = vendor/jdee
 	url = https://github.com/jkl1337/jdee.git
