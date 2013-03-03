@@ -1,5 +1,13 @@
+;this is my emacs dir
+;there are many like it
+;but this one is mine
+(defvar emacs-dir (file-name-directory load-file-name)
+  "top level emacs dir")
+
+
+
 ; load CEDET first, it cracks the shits if you don't
-;(load-file "~/.emacs.d/cedet/cedet-devel-load.el")
+(load-file (concat emacs-dir "vendor/cedet/cedet-devel-load.el"))
 ;(setq debug-on-error t)
 
 (require 'package)
@@ -14,17 +22,11 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(flymake flymake-shell auctex yasnippet
-		      auto-complete magit paredit python)
-  "A list of packages to ensure are installed at launch.")
+;load package list separate
+(load-file (concat emacs-dir "package-list.el"))
 
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
 
 ;; load vendor and custom files
-(defvar emacs-dir (file-name-directory load-file-name)
-  "top level emacs dir")
 (defvar vendor-dir (concat emacs-dir "vendor/")
   "Packages not yet avilable in ELPA")
 (defvar config-dir (concat emacs-dir "fejfighter/")
