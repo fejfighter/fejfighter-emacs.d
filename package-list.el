@@ -7,6 +7,8 @@
 		      python
 		      fuzzy 
 		      smex
+		      cmake-mode
+		      cmake-project
 		      )
   "A list of packages to ensure are installed at launch.")
 
