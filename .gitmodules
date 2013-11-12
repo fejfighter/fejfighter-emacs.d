@@ -1,6 +1,0 @@
-[submodule "vendor/cedet"]
-	path = vendor/cedet
-	url = git@github.com:fejfighter/cedet.git
-[submodule "vendor/ecb"]
-	path = vendor/ecb
-	url = git://github.com/alexott/ecb.git
