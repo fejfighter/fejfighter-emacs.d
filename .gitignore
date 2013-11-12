@@ -13,6 +13,7 @@ srecode*
 semanticdb
 eshell
 elpa
+el-get
 url
 ede-projects.el
 cedet
