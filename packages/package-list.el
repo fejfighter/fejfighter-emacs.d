@@ -1,4 +1,5 @@
 
+;; get el-get
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -12,7 +13,13 @@
  el-get-sources
  '(el-get
    magit
+   yasnippet
    ))
 
 
-(el-get 'sync)
+
+(require 'clojure-package)
+
+(el-get 'sync el-get-sources)
+
+(provide 'package-list)

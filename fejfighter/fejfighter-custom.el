@@ -29,7 +29,7 @@
 
 
 ;require the rest
-(require 'fejfighter/custom-ido)
+(require 'custom-ido)
 
 
-(provide 'fejfighter/custom)
+(provide 'fejfighter-custom)
