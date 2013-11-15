@@ -19,6 +19,7 @@
 
 
 (require 'clojure-package)
+(require 'cedet-package)
 
 (el-get 'sync el-get-sources)
 
