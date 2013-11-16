@@ -30,6 +30,7 @@
 
 ;require the rest
 (require 'custom-ido)
+(require 'path-custom)
 
 
 (provide 'fejfighter-custom)

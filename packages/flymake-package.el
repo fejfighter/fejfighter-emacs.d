@@ -1,9 +1,9 @@
+
 (setq el-get-sources
  (append
-  '(
-    (:name cedet)
+  '((:name flymake)
     )
   el-get-sources))
 
 
-(provide 'cedet-package)
+(provide 'flymake-package)

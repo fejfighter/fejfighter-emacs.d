@@ -1,9 +1,9 @@
 
 (setq el-get-sources
  (append
-  '(cider
-    clojure-mode
-    elein
+  '((:name cider)
+    (:name clojure-mode)
+    (:name elein)
     )
   el-get-sources))
 
