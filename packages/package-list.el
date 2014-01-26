@@ -33,7 +33,8 @@
 
 (require 'clojure-package)
 ;(require 'cedet-package)
-(require 'auto-complete-package)
+;(require 'auto-complete-package)
+(require 'company-package)
 (require 'version-control-package)
 
 
