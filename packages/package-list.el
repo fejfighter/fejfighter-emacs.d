@@ -32,8 +32,11 @@
 
 
 (require 'clojure-package)
+(require 'haskell-package)
+(require 'company-package)
 ;(require 'cedet-package)
-(require 'auto-complete-package)
+(require 'projectile-package)
+;(require 'auto-complete-package)
 (require 'version-control-package)
 
 
@@ -43,7 +46,5 @@
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
 (el-get 'sync my:el-get-packages)
-;(el-get 'sync el-get-sources)
-
 
 (provide 'package-list)
