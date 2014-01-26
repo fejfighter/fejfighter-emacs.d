@@ -33,10 +33,9 @@
 
 (require 'clojure-package)
 (require 'haskell-package)
-(require 'company-package)
 ;(require 'cedet-package)
 (require 'projectile-package)
-;(require 'auto-complete-package)
+(require 'auto-complete-package)
 (require 'version-control-package)
 
 
