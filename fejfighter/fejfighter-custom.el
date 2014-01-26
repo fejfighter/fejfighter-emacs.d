@@ -29,7 +29,8 @@
 
 
 ;require the rest
-(require 'fejfighter/custom-ido)
+(require 'custom-ido)
+(require 'path-custom)
 
 
-(provide 'fejfighter/custom)
+(provide 'fejfighter-custom)

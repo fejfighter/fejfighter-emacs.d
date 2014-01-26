@@ -4,5 +4,5 @@
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 (setq ido-enable-last-directory-history nil) ; forget latest selected directory names
 
-(provide 'fejfighter/custom-ido)
+(provide 'custom-ido)
 
