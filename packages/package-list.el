@@ -31,10 +31,11 @@
    ))
 
 
-(require 'clojure-package)
-;(require 'cedet-package)
 ;(require 'auto-complete-package)
+;(require 'cedet-package)
+(require 'clojure-package)
 (require 'company-package)
+(require 'helm-package)
 (require 'version-control-package)
 
 
