@@ -31,11 +31,15 @@
    ))
 
 
+
 (require 'clojure-package)
 (require 'haskell-package)
-;(require 'cedet-package)
 (require 'projectile-package)
-(require 'auto-complete-package)
+;(require 'auto-complete-package)
+;(require 'cedet-package)
+(require 'clojure-package)
+(require 'company-package)
+(require 'helm-package)
 (require 'version-control-package)
 
 
