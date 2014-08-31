@@ -1,10 +1,12 @@
+
+
 ; leave emacs blank when started
 (setq inhibit-startup-screen t)
 
 ; shorten yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; better lern this in depth
+; better leqrn this in depth
 (setq transient-mark-mode t)
 
 ; numbers!!
@@ -27,6 +29,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
 
+(set 'pop-up-frames 'graphic-only)
 
 ;require the rest
 (require 'custom-ido)

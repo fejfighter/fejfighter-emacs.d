@@ -1,3 +1,5 @@
+;; Start emacs as a server
+(server-start)
 ;(setq debug-on-error t)
 
 ;; set the paths for loading

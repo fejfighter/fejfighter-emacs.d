@@ -11,7 +11,9 @@
 
 ;; now we know el get is installed
 (require 'el-get)
-(add-to-list 'el-get-recipe-path "~/dev/emacs/el-get/recipes")
+(add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes/"))
+
+
 (setq el-get-verbose t)
 
 ;; osx needs to add some paths
@@ -22,11 +24,11 @@
 (setq
  el-get-sources
  '((:name el-get)
-   (:name smex				; a better (ido like) M-x
-	  :after (progn
-		   (setq smex-save-file "~/.emacs.d/.smex-items")
-		   (global-set-key (kbd "M-x") 'smex)
-		   (global-set-key (kbd "M-X") 'smex-major-mode-commands)))
+   ;; (:name smex				; a better (ido like) M-x
+   ;; 	  :after (progn
+   ;; 		   (setq smex-save-file "~/.emacs.d/.smex-items")
+   ;; 		   (global-set-key (kbd "M-x") 'smex)
+   ;; 		   (global-set-key (kbd "M-X") 'smex-major-mode-commands)))
    (:name yasnippet)
    ))
 
@@ -35,8 +37,9 @@
 (require 'clojure-package)
 (require 'haskell-package)
 (require 'projectile-package)
-;(require 'auto-complete-package)
-;(require 'cedet-package)
+;;(require 'python-package)
+;;(require 'auto-complete-package)
+(require 'cedet-package)
 (require 'clojure-package)
 (require 'company-package)
 (require 'helm-package)
@@ -51,3 +54,5 @@
 (el-get 'sync my:el-get-packages)
 
 (provide 'package-list)
+
+
