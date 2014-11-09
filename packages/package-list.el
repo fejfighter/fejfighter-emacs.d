@@ -1,3 +1,19 @@
+;; set up package for el-get to use
+;; Based on http://melpa.milkbox.net/#/getting-started .
+
+(require 'package)
+(add-to-list 'package-archives
+  ;; The 't' means to append, so that MELPA comes after the more
+  ;; stable ELPA archive.
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+;; Add ELPA if necessary. Looking at the El-Get package.rcp recipe in
+;; ~/local/opt/el-get/recipes it seems this is probably unnecessary.
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+(package-initialize)
+
 
 ;; get el-get
 (unless (require 'el-get nil 'noerror)
@@ -11,7 +27,10 @@
 
 ;; now we know el get is installed
 (require 'el-get)
-(add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes/"))
+(require 'el-get-elpa)
+'(el-get-recipe-path (concat user-emacs-directory "recipes/"))
+'(el-get-user-package-directory (concat user-emacs-directory "packages/configs"))
+
 
 
 (setq el-get-verbose t)
@@ -20,16 +39,17 @@
 (require 'path-custom)
 
 
-
 (setq
- el-get-sources
- '((:name el-get)
+ my:el-get-packages
+ '(el-get
+   yasnippet
+   cedet
+   company
    ;; (:name smex				; a better (ido like) M-x
    ;; 	  :after (progn
    ;; 		   (setq smex-save-file "~/.emacs.d/.smex-items")
    ;; 		   (global-set-key (kbd "M-x") 'smex)
    ;; 		   (global-set-key (kbd "M-X") 'smex-major-mode-commands)))
-   (:name yasnippet)
    ))
 
 
@@ -39,7 +59,7 @@
 (require 'projectile-package)
 ;;(require 'python-package)
 ;;(require 'auto-complete-package)
-(require 'cedet-package)
+;(require 'cedet-package)
 (require 'clojure-package)
 (require 'company-package)
 (require 'helm-package)

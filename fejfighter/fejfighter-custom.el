@@ -29,10 +29,12 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
 
-(set 'pop-up-frames 'graphic-only)
+(setq default-directory "~/dev")
+
+;(set 'pop-up-frames 'graphic-only)
 
 ;require the rest
-(require 'custom-ido)
+;(require 'custom-ido)
 (require 'path-custom)
 
 
