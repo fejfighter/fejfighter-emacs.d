@@ -2,25 +2,21 @@
 (server-start)
 ;(setq debug-on-error t)
 
-;; set the paths for loading
-(add-to-list 'load-path (concat user-emacs-directory "packages"))
-(add-to-list 'load-path (concat user-emacs-directory "el-get/el-get"))
-(add-to-list 'load-path (concat user-emacs-directory "fejfighter"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)
 
 ; install and load the packages
-(require 'package-list)
+;(require 'package-list)
+
+(add-to-list 'load-path (concat user-emacs-directory "fejfighter"))
+;(add-to-list 'load-path (concat user-emacs-directory "vendor"))
 
 ; add the local changes
-(require 'fejfighter-custom)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(el-get-user-package-directory "~/emacs.d/packages/configs"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(require 'fejfighter-init)
+ 

@@ -1,12 +1,11 @@
 
-
 ; leave emacs blank when started
 (setq inhibit-startup-screen t)
 
 ; shorten yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; better leqrn this in depth
+; better learn this in depth
 (setq transient-mark-mode t)
 
 ; numbers!!
@@ -32,10 +31,6 @@
 (setq default-directory "~/dev")
 
 ;(set 'pop-up-frames 'graphic-only)
-
-;require the rest
-;(require 'custom-ido)
-(require 'path-custom)
 
 
 (provide 'fejfighter-custom)
