@@ -6,7 +6,9 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
+;; TODO make this an auto detecting method
+;(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
+(require 'cask "/usr/share/cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
