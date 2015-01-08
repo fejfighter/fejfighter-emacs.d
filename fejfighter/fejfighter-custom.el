@@ -11,8 +11,8 @@
 ; numbers!!
 (setq line-number-mode t)
 (setq column-number-mode t)
-(require 'linum)
-(global-linum-mode t)
+(require 'nlinum)
+(global-nlinum-mode t)
 
 ;parens
 (show-paren-mode t);

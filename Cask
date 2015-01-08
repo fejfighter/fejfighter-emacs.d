@@ -2,7 +2,6 @@
 (source gnu)
 (source melpa)
 
-(depends-on "cedet-git")
 (depends-on "company")
 (depends-on "company-cmake")
 (depends-on "gradle-mode")
@@ -14,4 +13,5 @@
 (depends-on "helm-swoop")
 (depends-on "magit")
 (depends-on "multiple-cursors")
+(depends-on "nlinum")
 (depends-on "pallet")
