@@ -3,7 +3,9 @@
 (source melpa)
 
 (depends-on "company")
+(depends-on "company-c-headers")
 (depends-on "company-cmake")
+(depends-on "ede-compdb")
 (depends-on "gradle-mode")
 (depends-on "helm")
 (depends-on "helm-git")
