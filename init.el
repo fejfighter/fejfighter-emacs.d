@@ -14,8 +14,12 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;; TODO make this an auto detecting method
-;(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
-(require 'cask "/usr/share/cask/cask.el")
+(if (eq system-type 'darwin)
+    (setq path-to-cask-el '"/usr/local/Cellar/cask/0.7.2/cask.el")
+  (setq path-to-cask-el '"/usr/share/cask/cask.el"))
+  
+  
+(require 'cask path-to-cask-el)
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
