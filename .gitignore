@@ -15,6 +15,7 @@ semanticdb
 eshell
 elpa
 el-get
+.cask
 url
 ede-projects.el
 cedet
