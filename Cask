@@ -3,7 +3,6 @@
 (source melpa)
 
 (depends-on "cask")
-(depends-on "cedet-git")
 (depends-on "company")
 (depends-on "company-c-headers")
 (depends-on "company-cmake")
