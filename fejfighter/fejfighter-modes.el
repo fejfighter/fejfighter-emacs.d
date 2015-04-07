@@ -5,6 +5,9 @@
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
 
+(require 'meson)
+(setq auto-mode-alist
+      (cons '("meson.build" . meson-mode) auto-mode-alist))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Utilities

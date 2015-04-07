@@ -1,21 +1,21 @@
 ;; Custom File
-(setq custom-file "fejfighter-custom.el")
+(setq custom-file (concat user-emacs-directory "fejfighter/fejfighter-custom.el")
 (load custom-file)
 
-(defvar compile-command "scons")
+;(defvar compile-command "scons")
 
 ;;; SCons builds into a 'build' subdir, but we want to find the errors
 ;;; in the regular source dir.  So we remove build/XXX/YYY/{dbg,final}/ from the
 ;;; filenames.
-(defun process-error-filename (filename)
-  (let ((case-fold-search t))
-    (setq f (replace-regexp-in-string
-             "[Ss]?[Bb]uild[\\/].*\\(final\\|dbg\\)[^\\/]*[\\/]" "" filename))
-    (cond ((file-exists-p f)
-           f)
-          (t filename))))
+;(defun process-error-filename (filename)
+;  (let ((case-fold-search t))
+;    (setq f (replace-regexp-in-string
+;             "[Ss]?[Bb]uild[\\/].*\\(final\\|dbg\\)[^\\/]*[\\/]" "" filename))
+;    (cond ((file-exists-p f)
+;           f)
+;          (t filename))))
 
-(setq compilation-parse-errors-filename-function 'process-error-filename)
+;(setq compilation-parse-errors-filename-function 'process-error-filename)
 
 ; leave emacs blank when started
 (setq inhibit-startup-screen t)
