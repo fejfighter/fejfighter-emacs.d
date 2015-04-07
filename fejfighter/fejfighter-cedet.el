@@ -4,8 +4,14 @@
 (require 'ede-compdb)
 (require 'semantic/ia)
 
-(global-semanticdb-minor-mode 1)
+(global-semantic-decoration-mode 1)
+(global-semantic-highlight-edits-mode 1)
+(global-semantic-highlight-func-mode 1)
+(global-semantic-idle-local-symbol-highlight-mode 1)
 (global-semantic-idle-scheduler-mode 1)
+(global-semantic-idle-summary-mode 1)
+(global-semantic-stickyfunc-mode 1)
+(global-semanticdb-minor-mode 1)
 
 (semantic-add-system-include "/usr/include/boost" 'c++-mode)
 (semantic-add-system-include "/usr/include/GL" 'c++-mode)
@@ -23,5 +29,6 @@
 
 (require 'ede)
 (global-ede-mode 1)
+
 
 (provide 'fejfighter-cedet)
