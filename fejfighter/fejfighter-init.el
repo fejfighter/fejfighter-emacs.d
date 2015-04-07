@@ -1,5 +1,5 @@
 ;; Custom File
-(setq custom-file (concat user-emacs-directory "fejfighter/fejfighter-custom.el")
+(setq custom-file (concat user-emacs-directory "fejfighter/fejfighter-custom.el"))
 (load custom-file)
 
 ;(defvar compile-command "scons")
