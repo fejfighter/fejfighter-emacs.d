@@ -7,7 +7,7 @@
 
 ;; cedet-git needs to be loaded before anything else
 (load-file (concat user-emacs-directory "vendor/cedet-git/cedet-devel-load.el"))
-
+(load-file (concat user-emacs-directory "vendor/ede-meson/ede-meson.el"))
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")

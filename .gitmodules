@@ -1,3 +1,6 @@
 [submodule "vendor/cedet-git"]
 	path = vendor/cedet-git
 	url = git://git.code.sf.net/p/cedet/git
+[submodule "vendor/ede-meson"]
+	path = vendor/ede-meson
+	url = /home/fejfighter/dev/emacs/ede-meson
