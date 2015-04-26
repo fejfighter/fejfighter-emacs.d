@@ -36,4 +36,5 @@
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "projectile")
+(depends-on "shut-up")
 (depends-on "yasnippet")
