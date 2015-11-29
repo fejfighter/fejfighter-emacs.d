@@ -1,5 +1,5 @@
-(source "marmalade" "https://marmalade-repo.org/packages/")
 (source gnu)
+(source marmalade)
 (source melpa)
 
 (depends-on "async")
@@ -11,7 +11,6 @@
 (depends-on "company-c-headers")
 (depends-on "company-cmake")
 (depends-on "dash")
-(depends-on "ede-compdb")
 (depends-on "elpakit")
 (depends-on "epl")
 (depends-on "f")
