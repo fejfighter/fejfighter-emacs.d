@@ -53,11 +53,10 @@
 ;(set 'pop-up-frames 'graphic-only)
 
 
-(provide 'fejfighter-custom)
-
-(require 'path-custom)
-
+;(provide 'fejfighter-custom)
+;(require 'path-custom)
 (require 'fejfighter-modes)
+
 (require 'fejfighter-vcs)
 
 (provide 'fejfighter-init)

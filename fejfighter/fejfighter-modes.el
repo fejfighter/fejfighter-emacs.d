@@ -20,12 +20,21 @@
 
 (require 'flycheck)
 (global-flycheck-mode t)
+
 ;; auto completion
 (require 'company)
+					;(require 'helm-company)
 (global-company-mode t)
-
 (global-set-key (kbd "M-/") 'company-complete-common)
+(global-set-key (kbd "C-M-/") 'helm-company)
 
-(require 'fejfighter-cedet)
+;; popwin
+(require 'popwin)
+(require 'import-popwin)
+(popwin-mode t)
+(global-set-key (kbd "C-c i") 'import-popwin)
+
+;(require 'fejfighter-cedet)
+(require 'fejfighter-c-like)
 
 (provide 'fejfighter-modes)
