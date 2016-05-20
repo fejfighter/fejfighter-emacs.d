@@ -1,7 +1,6 @@
 
 ;; cedet
 (semantic-mode 1)
-(require 'ede-compdb)
 (require 'semantic/ia)
 
 (global-semantic-decoration-mode 1)
@@ -37,7 +36,6 @@
 (require 'flycheck)
 
 ;; TODO: load lazily...
-(require 'ede-compdb)
 
 (defun flycheck-compdb-setup ()
   (when (and ede-object (oref ede-object compilation))

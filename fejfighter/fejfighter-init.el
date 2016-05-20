@@ -30,7 +30,8 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 (require 'linum)
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
+
 
 ;parens
 (show-paren-mode t);
@@ -45,17 +46,17 @@
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (setq default-directory "~/dev/")
 
 ;(set 'pop-up-frames 'graphic-only)
 
 
-(provide 'fejfighter-custom)
-
-(require 'path-custom)
-
+;(provide 'fejfighter-custom)
+;(require 'path-custom)
 (require 'fejfighter-modes)
+
 (require 'fejfighter-vcs)
 
 (provide 'fejfighter-init)
