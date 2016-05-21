@@ -21,6 +21,8 @@
 (require 'flycheck)
 (global-flycheck-mode t)
 
+
+
 ;; auto completion
 (require 'company)
 					;(require 'helm-company)
@@ -33,6 +35,10 @@
 (require 'import-popwin)
 (popwin-mode t)
 (global-set-key (kbd "C-c i") 'import-popwin)
+(global-set-key (kbd "C-c q") 'popwin:close-popup-window)
+(global-set-key (kbd "C-x 6") popwin:keymap)
+;(global-set-key (kbd "C-x 6 f") 'popwin:find-file)
+;(global-set-key (kbd "C-x 6 b") 'popwin:switch-to-buffer)
 
 ;(require 'fejfighter-cedet)
 (require 'fejfighter-c-like)
