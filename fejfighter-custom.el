@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-mode autodisass-llvm-bitcode llvm-mode frames-only-mode imenus flycheck-clangcheck focus aggressive-indent ace-window ivy imenu-list popwin yasnippet yasnippet-bundle yatemplate name-frame irony-eldoc json-mode multiple-cursors cmake-mode company-cmake counsel imenu-anywhere flycheck company magit nlinum use-package)))
+    (lsp-clangd projectile-cmake lsp-mode all-the-icons all-the-icons-dired all-the-icons-ivy persp-projectile realgud geiser projectile-speedbar counsel-projectile projectile company-c-headers autodisass-llvm-bitcode llvm-mode frames-only-mode imenus flycheck-clangcheck focus aggressive-indent ace-window ivy imenu-list popwin yasnippet yasnippet-bundle yatemplate name-frame irony-eldoc json-mode multiple-cursors cmake-mode company-cmake counsel imenu-anywhere flycheck company magit nlinum use-package)))
  '(safe-local-variable-values
    (quote
     ((eval add-hook

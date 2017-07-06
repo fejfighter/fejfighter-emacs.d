@@ -52,14 +52,5 @@
       (setq-local flycheck-clang-include-path (get-system-include-path comp t))
       )))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode 1)
-  :config
-  (add-hook 'ede-compdb-project-rescan-hook #'flycheck-compdb-setup)
-  (add-hook 'ede-minor-mode-hook #'flycheck-compdb-setup)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-
 
 ;;; fejfighter-cedet.el ends here

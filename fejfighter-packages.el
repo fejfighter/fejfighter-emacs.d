@@ -8,12 +8,12 @@
 
 
 
-;; (use-package flycheck-clangcheck
-;;   :ensure t
-;;   :config
-;;   (setq flycheck-clangcheck-build-path (ede-directory-get-toplevel-open-project)
-  
-;;   )
+(use-package flycheck-clangcheck
+:ensure t
+;; :config
+;; (setq flycheck-clangcheck-build-path (ede-directory-get-toplevel-open-project))
+;; (add-to-list flycheck-checkers `clang-check)
+)
 
 (use-package frames-only-mode
   :ensure t

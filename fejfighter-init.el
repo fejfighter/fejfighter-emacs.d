@@ -19,11 +19,17 @@
   :ensure t)
 
 
+(global-set-key (kbd "<f8>") 'recompile)
+(global-set-key (kbd "<shift>-<f8>") 'compile)
+
+
+
+
 ;parens
 (show-paren-mode t);
 
 ; init and set theme for emacs
-(load-theme 'tango-dark) 
+(load-theme 'wombat) 
 
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
