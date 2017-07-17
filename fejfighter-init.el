@@ -22,6 +22,26 @@
 (global-set-key (kbd "<f8>") 'recompile)
 (global-set-key (kbd "<shift>-<f8>") 'compile)
 
+(when (string-equal system-type "darwin")
+  ;; used for compiling and calling stuff with eshell
+  (setenv "PATH"
+          (concat
+           "/opt/pkg/bin/" ":"
+	   "/bin/" ":"
+	   "/usr/bin/" ":"
+           (getenv "PATH")
+           )
+          )
+  
+  ;; used for loading fly make and the like
+  (setq exec-path
+	(append exec-path
+        '(;(getenv "PATH")
+          "/opt/pkg/bin/"
+          "/bin/"
+          "/usr/bin/"
+          ))
+        ))
 
 
 
