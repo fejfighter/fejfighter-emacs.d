@@ -1,4 +1,11 @@
 *~
 *.elc
 network-security.data
-elpa
+/elpa
+/.cask
+/.DS_Store
+/recentf
+/session.*
+/url/cookies
+/projectile.cache
+/projectile-bookmarks.eld
