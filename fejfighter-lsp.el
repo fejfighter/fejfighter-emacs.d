@@ -35,12 +35,11 @@
   :load-path "vendor/lsp-clangd/")
 
 (use-package projectile
-  :config
-  (projectile-global-mode t))
-
-(use-package counsel-projectile
   :ensure t
   :config
+  (use-package counsel-projectile :ensure t)
+  (projectile-mode t)
+  (setq projectile-completion-system 'ivy)
   (counsel-projectile-on))
 
 (use-package persp-projectile
