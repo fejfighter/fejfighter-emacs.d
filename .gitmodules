@@ -1,12 +1,6 @@
-[submodule "vendor/rtags"]
-	path = vendor/rtags
-	url = https://github.com/Andersbakken/rtags.git
-[submodule "vendor/cedet"]
-	path = vendor/cedet
-	url = http://git.code.sf.net/p/cedet/git
-[submodule "vendor/lsp-mode"]
-	path = vendor/lsp-mode
-	url = git@github.com:vibhavp/emacs-lsp.git
 [submodule "vendor/lsp-clangd"]
 	path = vendor/lsp-clangd
-	url = git@github.com:tee3/lsp-clangd.git
+	url = git@github.com:emacs-lsp/lsp-clangd.git
+[submodule "vendor/realgud-lldb"]
+	path = vendor/realgud-lldb
+	url = git@github.com:realgud/realgud-lldb.git

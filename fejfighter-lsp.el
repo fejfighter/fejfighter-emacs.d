@@ -44,11 +44,10 @@
 
 
 (use-package lsp-clangd
-  :ensure t
   :load-path "vendor/lsp-clangd/"
   :config
-  (add-hook 'c-mode-hook #'lsp-c-enable )
-  (add-hook 'c++-mode-hook #'lsp-c++-enable))
+  (add-hook 'c-mode-hook #'lsp-clangd-c-enable)
+  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable))
 
 
 (use-package projectile
