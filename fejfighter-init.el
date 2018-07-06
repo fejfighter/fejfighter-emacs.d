@@ -10,13 +10,9 @@
 ; shorten yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; numbers!!
 (setq line-number-mode t)
 (setq column-number-mode t)
-(use-package nlinum
-  :config (progn
-	    (add-hook 'prog-mode-hook 'nlinum-mode))
-  :ensure t)
+(setq x-gtk-use-system-tooltips nil)
 
 
 (global-set-key (kbd "<f8>") 'recompile)
@@ -26,9 +22,10 @@
   ;; used for compiling and calling stuff with eshell
   (setenv "PATH"
           (concat
-           "/opt/pkg/bin/" ":"
-	   "/bin/" ":"
-	   "/usr/bin/" ":"
+           "/opt/pkg/bin" ":"
+	   "/usr/local/bin" ":"
+	   "/bin" ":"
+	   "/usr/bin" ":"
            (getenv "PATH")
            )
           )
@@ -37,7 +34,8 @@
   (setq exec-path
 	(append exec-path
         '(;(getenv "PATH")
-          "/opt/pkg/bin/"
+          "/opt/pkg/bin"
+	  "/usr/local/bin"
           "/bin/"
           "/usr/bin/"
           ))

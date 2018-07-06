@@ -12,13 +12,10 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)
 (require 'bind-key)
 
 (add-to-list 'load-path (concat user-emacs-directory "vendor/"))
-(add-to-list 'load-path (concat user-emacs-directory "vendor/cedet/"))
 
-;(load-file (concat user-emacs-directory "fejfighter-cedet.el"))
 (load-file (concat user-emacs-directory "fejfighter-lsp.el"))
 (load-file (concat user-emacs-directory "fejfighter-packages.el"))
 (load-file (concat user-emacs-directory "fejfighter-init.el"))

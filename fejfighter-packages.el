@@ -4,21 +4,27 @@
 
 (use-package company
   :ensure t
-  :config (add-hook 'prog-mode-hook 'company-mode))
+  :config
+  (add-hook 'prog-mode-hook 'company-mode))
 
+(use-package flymake
+  :config
+  (add-hook 'prog-mode-hook 'flymake-mode))
 
+(use-package display-line-numbers
+  :config
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
-(use-package flycheck-clangcheck
-:ensure t
-;; :config
-;; (setq flycheck-clangcheck-build-path (ede-directory-get-toplevel-open-project))
-;; (add-to-list flycheck-checkers `clang-check)
-)
-
-(use-package frames-only-mode
+(use-package yasnippet
   :ensure t
-  )
+  :config
+  (yas-global-mode t))
 
+(use-package delight
+  :ensure t)
+
+;; (use-package frames-only-mode
+;;   :ensure t)
 
 (use-package ace-window
   :ensure t
@@ -28,17 +34,21 @@
 (use-package focus
   :ensure t)
 
-(use-package aggressive-indent)
-(use-package company-cmake)
-(use-package cmake-mode)
+(use-package aggressive-indent
+  :ensure t)
+(use-package company-cmake
+  :ensure t)
+(use-package cmake-mode
+  :ensure t)
 
 (use-package swiper
   :ensure t
   :init
-  (global-set-key "\C-s" 'swiper))
+  (global-set-key "\M-s" 'swiper))
 
 (use-package counsel
   :ensure t
+  :diminish (ivy-mode . "")
   :init
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   :bind
@@ -55,7 +65,14 @@
   ("C-c k" . counsel-ag)
   ("C-x l" . counsel-locate)
   ("M-i" . counsel-imenu)
-  ("M-/" . counsel-company)))
+  ("M-/" . counsel-company))
+  :config
+  (setq ivy-use-virtual-buffers t)       ; extend searching to bookmarks and
+  (setq ivy-height 20)                   ; set height of the ivy window
+  (setq ivy-count-format "(%d/%d) ")     ; count format, from the ivy help page
+  (setq ivy-display-style 'fancy)
+  (setq ivy-format-function 'ivy-format-function-line) ; Make highlight extend all the way to the right)
+  )
 
 (use-package ivy
   :ensure t
@@ -66,7 +83,8 @@
   :bind  (("C-c C-r" . ivy-resume)
 	  ("<f6>" . ivy-resume)))
 
-(use-package imenu-anywhere)
+(use-package imenu-anywhere
+  :ensure t)
 
 (use-package multiple-cursors
   :ensure t
@@ -74,5 +92,3 @@
   (multiple-cursors-mode t))
 
 (provide 'fejfighter-packages)
-
-

@@ -11,8 +11,8 @@
   :init
   (global-flycheck-mode 1)
   :config
-  (add-hook 'ede-compdb-project-rescan-hook #'flycheck-compdb-setup)
-  (add-hook 'ede-minor-mode-hook #'flycheck-compdb-setup)
+  ;(add-hook 'ede-compdb-project-rescan-hook #'flycheck-compdb-setup)
+  ;(add-hook 'ede-minor-mode-hook #'flycheck-compdb-setup)
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package company-c-headers
@@ -24,15 +24,32 @@
 					 'ede-object-system-include-path)
 				   (setq company-c-headers-path-user
 					 'ede-object-system-include-path))))
-
-(use-package lsp-mode
-  :load-path "vendor/lsp-mode/"
+(use-package company-lsp
+  :ensure yasnippet
   :config
-  (add-hook 'c-mode-hook 'lsp-mode )
-  (add-hook 'c++-mode-hook 'lsp-mode))
+  (push 'company-lsp company-backends)
+  (setq company-lsp-async t)
+  (setq company-lsp-enable-snippet t)
+  (setq company-lsp-enable-recompletion t))
+  
+(use-package lsp-mode
+  :ensure t)
+
+(use-package lsp-ui
+  :ensure t
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  (setq lsp-ui-sideline-show-symbol nil)
+  )
+
 
 (use-package lsp-clangd
-  :load-path "vendor/lsp-clangd/")
+  :ensure t
+  :load-path "vendor/lsp-clangd/"
+  :config
+  (add-hook 'c-mode-hook #'lsp-c-enable )
+  (add-hook 'c++-mode-hook #'lsp-c++-enable))
+
 
 (use-package projectile
   :ensure t
@@ -40,14 +57,16 @@
   (use-package counsel-projectile :ensure t)
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
-  (counsel-projectile-on))
+  (counsel-projectile-mode t))
 
 (use-package persp-projectile
   :ensure t
   :config
+  (use-package perspective :ensure t)
   (persp-mode t))
 
-(use-package projectile-cmake
-  :load-path "vendor/projectile-cmake/"
+(use-package realgud-lldb
+  :load-path "vendor/realgud-lldb/"
   :config
-  (message (projectile-cmake-compdb-path)))
+  (use-package realgud :ensure t))
+
