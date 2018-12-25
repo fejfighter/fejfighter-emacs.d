@@ -35,6 +35,9 @@
 (use-package lsp-mode
   :ensure t)
 
+(use-package company-quickhelp
+  :ensure t)
+
 (use-package lsp-ui
   :ensure t
   :config
