@@ -1,6 +1,0 @@
-[submodule "vendor/lsp-clangd"]
-	path = vendor/lsp-clangd
-	url = git@github.com:emacs-lsp/lsp-clangd.git
-[submodule "vendor/realgud-lldb"]
-	path = vendor/realgud-lldb
-	url = git@github.com:realgud/realgud-lldb.git
