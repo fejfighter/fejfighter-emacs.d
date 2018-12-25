@@ -24,34 +24,9 @@
 					 'ede-object-system-include-path)
 				   (setq company-c-headers-path-user
 					 'ede-object-system-include-path))))
-(use-package company-lsp
-  :ensure yasnippet
-  :config
-  (push 'company-lsp company-backends)
-  (setq company-lsp-async t)
-  (setq company-lsp-enable-snippet t)
-  (setq company-lsp-enable-recompletion t))
-  
-(use-package lsp-mode
-  :ensure t)
-
-(use-package company-quickhelp
-  :ensure t)
-
-(use-package lsp-ui
+(use-package eglot
   :ensure t
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (setq lsp-ui-sideline-show-symbol nil)
   )
-
-
-(use-package lsp-clangd
-  :load-path "vendor/lsp-clangd/"
-  :config
-  (add-hook 'c-mode-hook #'lsp-clangd-c-enable)
-  (add-hook 'c++-mode-hook #'lsp-clangd-c++-enable))
-
 
 (use-package projectile
   :ensure t
