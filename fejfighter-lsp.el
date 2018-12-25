@@ -56,16 +56,7 @@
   (use-package counsel-projectile :ensure t)
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
-  (counsel-projectile-mode t))
-
-(use-package persp-projectile
-  :ensure t
-  :config
-  (use-package perspective :ensure t)
-  (persp-mode t))
-
-(use-package realgud-lldb
-  :load-path "vendor/realgud-lldb/"
-  :config
-  (use-package realgud :ensure t))
+  (counsel-projectile-mode t)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  )
 
