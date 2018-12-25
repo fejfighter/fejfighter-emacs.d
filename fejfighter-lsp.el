@@ -6,15 +6,6 @@
 
 ;(add-to-list 'load-path (concat user-emacs-directory "vendor/lsp-mode/"))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode 1)
-  :config
-  ;(add-hook 'ede-compdb-project-rescan-hook #'flycheck-compdb-setup)
-  ;(add-hook 'ede-minor-mode-hook #'flycheck-compdb-setup)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-
 (use-package company-c-headers
   :ensure t
   :config
