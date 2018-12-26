@@ -4,7 +4,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;(add-to-list 'load-path (concat user-emacs-directory "vendor/lsp-mode/"))
 
 (use-package company-c-headers
   :ensure t
@@ -17,6 +16,8 @@
 					 'ede-object-system-include-path))))
 (use-package eglot
   :ensure t
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode objc-mode) . (eglot-cquery "clangd")))
   )
 
 (use-package projectile
