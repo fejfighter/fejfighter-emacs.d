@@ -17,6 +17,8 @@
 
 (global-set-key (kbd "<f8>") 'recompile)
 (global-set-key (kbd "<shift>-<f8>") 'compile)
+(global-set-key (kbd "M-i") 'imenu)
+
 
 (when (string-equal system-type "darwin")
   ;; used for compiling and calling stuff with eshell
