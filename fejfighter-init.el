@@ -2,6 +2,8 @@
 
 ;; Custom File - keep the churn somewhere else
 (setq custom-file (concat user-emacs-directory "fejfighter-custom.el"))
+;; this requires emacs 27
+(if (not (file-exists-p custom-file)) (make-empty-file custom-file))
 (load custom-file)
 
 ; leave emacs blank when started
