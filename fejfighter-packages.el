@@ -7,9 +7,21 @@
   :config
   (add-hook 'prog-mode-hook 'company-mode))
 
-(use-package flymake
+(use-package company-posframe
+  :ensure t
+  :hook
+  (company-mode . company-posframe-mode))
+
+(use-package flycheck
+  :ensure t
   :config
-  (add-hook 'prog-mode-hook 'flymake-mode))
+  (add-hook 'prog-mode-hook 'flycheck-mode))
+
+(use-package flycheck-posframe
+  :ensure t
+  :after flycheck
+  :hook (flycheck-mode-hook . flycheck-posframe-mode))
+
 
 (use-package display-line-numbers
   :config
@@ -82,6 +94,11 @@
     (setq ivy-use-virtual-buffers t))
   :bind  (("C-c C-r" . ivy-resume)
 	  ("<f6>" . ivy-resume)))
+
+(use-package ivy-posframe
+  :ensure t
+  :init (ivy-posframe-mode)
+  )
 
 (use-package imenu-anywhere
   :ensure t)
