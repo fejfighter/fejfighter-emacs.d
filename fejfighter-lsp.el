@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; package -- Summary
 
 
@@ -17,24 +18,27 @@
 (use-package lsp-mode
   :ensure t
   :commands lsp
+  :hook ((c-mode c++-mode) lsp)
   :config
-  (add-hook 'c-mode-hook #'lsp)
-  (add-hook 'c++-mode-hook #'lsp))
+  (setq lsp-clients-clangd-args '("-j=3" "--background-index" "--compile-commands-dir=.")))
 
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode
-  :config
-  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  (define-key lsp-ui-mode-map [remap imenu] #'lsp-ui-imenu)
-  (setq lsp-ui-sideline-enable nil
-        lsp-ui-doc-enable nil
-        lsp-ui-imenu-enable t
-	lsp-ui-sideline-ignore-duplicate t))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :hook lsp
+    :config
+    (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+    (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+    (define-key lsp-ui-mode-map [remap imenu] #'lsp-ui-imenu)
+    (setq ;lsp-ui-sideline-enable nil
+     lsp-ui-doc-enable nil
+     lsp-ui-imenu-enable t
+     lsp-ui-flycheck-enable t
+     lsp-ui-sideline-ignore-duplicate t))
 
 (use-package company-lsp
   :ensure t
+  :hook lsp
   :commands company-lsp)
 
 (use-package projectile
@@ -49,11 +53,11 @@
 
 (use-package persp-projectile
   :ensure t
+  :hook projectile
   :after projectile persp-mode)
 
 (use-package treemacs
   :ensure t
-  :defer t
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
@@ -117,6 +121,7 @@
 
 (use-package treemacs-projectile
   :after treemacs projectile
+  :hook treemacs
   :ensure t)
 
 (use-package treemacs-icons-dired

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; My config of small/non-pacakge stuff
 
 ;; Custom File - keep the churn somewhere else
@@ -51,11 +52,11 @@
 (show-paren-mode t);
 
 ; init and set theme for emacs
-(load-theme 'wombat) 
+(load-theme 'wombat)
 
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))     
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (setq default-directory "~/dev/")

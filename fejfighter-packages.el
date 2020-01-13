@@ -1,21 +1,19 @@
+;; -*- lexical-binding: t; -*-
 (use-package magit
   :ensure t
   :bind (("C-x C-g" . magit-status)))
 
 (use-package company
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'company-mode))
+  :hook (prog-mode . company-mode))
 
 (use-package company-posframe
   :ensure t
-  :hook
-  (company-mode . company-posframe-mode))
+  :hook (company-mode . company-posframe-mode))
 
 (use-package flycheck
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'flycheck-mode))
+  :hook (prog-mode . flycheck-mode))
 
 (use-package flycheck-posframe
   :ensure t
@@ -24,13 +22,12 @@
 
 
 (use-package display-line-numbers
-  :config
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  :hook (prog-mode . display-line-numbers-mode))
 
 (use-package yasnippet
   :ensure t
-  :config
-  (yas-global-mode t))
+  :hook
+  (prog-mode . yas-global-mode))
 
 (use-package delight
   :ensure t)
@@ -44,19 +41,22 @@
   (("M-p" . ace-window)))
 
 (use-package focus
+  :commands focus-mode
   :ensure t)
 
 (use-package aggressive-indent
+  :hook (prog-mode . aggressive-indent-mode)
   :ensure t)
+
 (use-package company-cmake
   :ensure t)
+
 (use-package cmake-mode
   :ensure t)
 
 (use-package swiper
   :ensure t
-  :init
-  (global-set-key "\M-s" 'swiper))
+  :bind (("M-s" . swiper)) )
 
 (use-package counsel
   :ensure t
@@ -95,10 +95,10 @@
   :bind  (("C-c C-r" . ivy-resume)
 	  ("<f6>" . ivy-resume)))
 
-(use-package ivy-posframe
-  :ensure t
-  :init (ivy-posframe-mode)
-  )
+;; (use-package ivy-posframe
+;;   :ensure t
+;;   :init (ivy-posframe-mode)
+;;   )
 
 (use-package imenu-anywhere
   :ensure t)
