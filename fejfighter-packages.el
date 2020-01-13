@@ -44,9 +44,9 @@
   :commands focus-mode
   :ensure t)
 
-(use-package aggressive-indent
-  :hook (prog-mode . aggressive-indent-mode)
-  :ensure t)
+;; (use-package aggressive-indent
+;;   :hook (prog-mode . aggressive-indent-mode)
+;;   :ensure t)
 
 (use-package company-cmake
   :ensure t)
