@@ -51,6 +51,9 @@
 ;parens
 (show-paren-mode t);
 
+; Emoji set
+(set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
+
 ; init and set theme for emacs
 (load-theme 'wombat)
 
