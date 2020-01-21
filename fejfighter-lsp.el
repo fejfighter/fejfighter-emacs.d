@@ -17,8 +17,8 @@
 					 'ede-object-system-include-path))))
 (use-package lsp-mode
   :ensure t
+  :hook ((c-mode c++-mode) . lsp)
   :commands lsp
-  :hook ((c-mode c++-mode) lsp)
   :config
   (setq lsp-clients-clangd-args '("-j=3" "--background-index" "--compile-commands-dir=.")))
 
