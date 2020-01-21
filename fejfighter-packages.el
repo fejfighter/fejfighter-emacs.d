@@ -95,10 +95,10 @@
   :bind  (("C-c C-r" . ivy-resume)
 	  ("<f6>" . ivy-resume)))
 
-;; (use-package ivy-posframe
-;;   :ensure t
-;;   :init (ivy-posframe-mode)
-;;   )
+(use-package ivy-posframe
+  :ensure t
+  :init (ivy-posframe-mode)
+  )
 
 (use-package imenu-anywhere
   :ensure t)
