@@ -17,24 +17,31 @@
 					 'ede-object-system-include-path))))
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode c++-mode) . lsp)
-  :commands lsp
+  :commands (lsp lsp-deferred)
+  :hook ((c-mode c++-mode go-mode) . lsp-deferred)
   :config
   (setq lsp-clients-clangd-args '("-j=3" "--background-index" "--compile-commands-dir=.")))
 
-  (use-package lsp-ui
-    :ensure t
-    :commands lsp-ui-mode
-    :hook lsp
-    :config
-    (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-    (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-    (define-key lsp-ui-mode-map [remap imenu] #'lsp-ui-imenu)
-    (setq ;lsp-ui-sideline-enable nil
-     lsp-ui-doc-enable nil
-     lsp-ui-imenu-enable t
-     lsp-ui-flycheck-enable t
-     lsp-ui-sideline-ignore-duplicate t))
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :hook lsp
+  :config
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (define-key lsp-ui-mode-map [remap imenu] #'lsp-ui-imenu)
+  (setq ;lsp-ui-sideline-enable nil
+   lsp-ui-doc-enable nil
+   lsp-ui-imenu-enable t
+   lsp-ui-flycheck-enable t
+   lsp-ui-sideline-ignore-duplicate t))
 
 (use-package company-lsp
   :ensure t
@@ -118,6 +125,20 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
+
+(use-package go-projectile
+  :ensure t
+  :init)
+
+(use-package go-mode
+  :ensure t
+  :init
+  )
+
+(use-package go-eldoc
+  :ensure t
+  :hook (go-mode go-eldoc-setup)
+  )
 
 (use-package treemacs-projectile
   :after treemacs projectile

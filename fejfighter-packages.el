@@ -9,7 +9,11 @@
 
 (use-package company-posframe
   :ensure t
-  :hook (company-mode . company-posframe-mode))
+  :hook (company-mode . company-posframe-mode)
+    :config
+  ;; Optionally enable completion-as-you-type behavior.
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
 
 (use-package flycheck
   :ensure t
@@ -26,11 +30,13 @@
 
 (use-package yasnippet
   :ensure t
+  :commands yas-minor-mode
   :hook
-  (prog-mode . yas-global-mode))
+  (prog-mode . yas-minor-mode))
 
 (use-package delight
   :ensure t)
+
 
 ;; (use-package frames-only-mode
 ;;   :ensure t)
