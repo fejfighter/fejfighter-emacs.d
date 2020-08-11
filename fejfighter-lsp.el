@@ -40,13 +40,9 @@
   (setq ;lsp-ui-sideline-enable nil
    lsp-ui-doc-enable nil
    lsp-ui-imenu-enable t
-   lsp-ui-flycheck-enable t
+   ;lsp-ui-flycheck-enable t
    lsp-ui-sideline-ignore-duplicate t))
 
-(use-package company-lsp
-  :ensure t
-  :hook lsp
-  :commands company-lsp)
 
 (use-package projectile
   :ensure t
