@@ -37,10 +37,6 @@
 (use-package delight
   :ensure t)
 
-
-;; (use-package frames-only-mode
-;;   :ensure t)
-
 (use-package ace-window
   :ensure t
   :bind
@@ -48,13 +44,6 @@
 
 (use-package focus
   :commands focus-mode
-  :ensure t)
-
-;; (use-package aggressive-indent
-;;   :hook (prog-mode . aggressive-indent-mode)
-;;   :ensure t)
-
-(use-package company-cmake
   :ensure t)
 
 (use-package cmake-mode
