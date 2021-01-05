@@ -50,7 +50,7 @@
   (use-package counsel-projectile :ensure t)
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
-  (setq projectile-switch-project-action 'projectile-vc)
+  (setq counsel-projectile-switch-project-action 'projectile-vc)
   (setq projectile-project-compilation-dir "build")
   (counsel-projectile-mode t)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
