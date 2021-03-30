@@ -7,7 +7,6 @@
 
 
 (use-package company-c-headers
-  :ensure t
   :config
   (add-to-list 'company-backends 'company-c-headers)
   (add-hook 'ede-minor-mode-hook (lambda ()
@@ -16,7 +15,6 @@
 				   (setq company-c-headers-path-user
 					 'ede-object-system-include-path))))
 (use-package lsp-mode
-  :ensure t
   :commands (lsp lsp-deferred)
   :hook ((c-mode c++-mode go-mode) . lsp-deferred)
   :config
@@ -30,7 +28,6 @@
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 (use-package lsp-ui
-  :ensure t
   :commands lsp-ui-mode
   :hook lsp
   :config
@@ -45,23 +42,19 @@
 
 
 (use-package projectile
-  :ensure t
   :config
-  (use-package counsel-projectile :ensure t)
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
   (setq counsel-projectile-switch-project-action 'projectile-vc)
   (setq projectile-project-compilation-dir "build")
-  (counsel-projectile-mode t)
+  ;(counsel-projectile-mode t)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package persp-projectile
-  :ensure t
   :hook projectile
   :after projectile persp-mode)
 
 (use-package treemacs
-  :ensure t
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
@@ -122,35 +115,16 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
-
-(use-package go-projectile
-  :ensure t
-  :init)
-
-(use-package go-mode
-  :ensure t
-  :init
-  )
-
-(use-package go-eldoc
-  :ensure t
-  :hook (go-mode go-eldoc-setup)
-  )
-
 (use-package treemacs-projectile
   :after treemacs projectile
-  :hook treemacs
-  :ensure t)
+  :hook treemacs)
 
 (use-package treemacs-icons-dired
   :after treemacs dired
-  :ensure t
   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
-  :after treemacs magit
-  :ensure t)
+  :after treemacs magit)
 
 (use-package lsp-treemacs
-  :after treemacs lsp
-  :ensure t)
+  :after treemacs lsp)

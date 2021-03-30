@@ -3,22 +3,27 @@
 (defvar doom--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(package-initialize)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 
-(eval-when-compile
-  (require 'use-package))
-(require 'bind-key)
-
+;; often build emacs from source and prefix with /usr/local
+;; packages with emacs support normally add files to /usr/share/emacs/site-lisp.
+;; building locally means it won't get picked up, add it here
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
 
 ; set the garbage collector early
 (setq garbage-collection-messages t)
@@ -64,8 +69,8 @@
 
 
 
-(load-file (concat user-emacs-directory "fejfighter-lsp.el"))
 (load-file (concat user-emacs-directory "fejfighter-packages.el"))
+(load-file (concat user-emacs-directory "fejfighter-lsp.el"))
 (load-file (concat user-emacs-directory "fejfighter-init.el"))
 
 
