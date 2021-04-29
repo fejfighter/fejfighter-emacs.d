@@ -13,14 +13,16 @@
 ; shorten yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq line-number-mode t)
+(setq display-line-number-mode t)
 (setq column-number-mode t)
 (setq x-gtk-use-system-tooltips nil)
 
+(use-package compile
+  :bind (("<f8>" . recompile)
+	 ("C-<f8>" . compile)))
 
-(global-set-key (kbd "<f8>") 'recompile)
-(global-set-key (kbd "<shift>-<f8>") 'compile)
-(global-set-key (kbd "M-i") 'imenu)
+(use-package imenu
+  :bind (("M-i" . imenu)))
 
 
 (when (string-equal system-type "darwin")
