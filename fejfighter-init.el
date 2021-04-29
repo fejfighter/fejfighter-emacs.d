@@ -79,9 +79,6 @@
 ; Emoji set
 (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
 
-; init and set theme for emacs
-(load-theme 'wombat)
-
 ; hide the menu bar and tool bar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))

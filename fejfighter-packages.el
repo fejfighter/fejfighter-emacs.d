@@ -1,4 +1,8 @@
 ;; -*- lexical-binding: t; -*-
+(use-package doom-themes
+  :config
+  (load-theme 'doom-gruvbox t))
+
 (use-package magit
   :bind (("C-x C-g" . magit-status)))
 
