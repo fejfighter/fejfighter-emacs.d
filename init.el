@@ -3,6 +3,9 @@
 (defvar doom--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 
+;; don't check for  changes on startup, I don't get to modify elisp often
+(setq straight-check-for-modifications nil)
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
