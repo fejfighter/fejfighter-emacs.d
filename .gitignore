@@ -10,3 +10,10 @@ network-security.data
 /projectile.cache
 /projectile-bookmarks.eld
 fejfighter-custom.el
+bookmarks
+eln-cache
+tramp
+transient
+.lsp-session*
+projectile-bookmars.eld
+straight
