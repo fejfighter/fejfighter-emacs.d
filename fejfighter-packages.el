@@ -50,11 +50,11 @@
 (use-package helm-company
   :bind (("M-/" . helm-company)))
 
-(use-package helm-lsp
-  :config
-  (helm-projectile-on)
+(use-package helm-lsp)
 
-(use-package helm-projectile)
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
 
 ;; (use-package swiper
 ;;   :bind (("M-s" . swiper)) )
