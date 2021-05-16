@@ -6,6 +6,9 @@
 ;; don't check for  changes on startup, I don't get to modify elisp often
 (setq straight-check-for-modifications nil)
 
+(if (not (native-comp-available-p))
+    (setq straight-disable-native-compile t))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
