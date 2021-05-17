@@ -40,11 +40,12 @@
    ;lsp-ui-flycheck-enable t
    lsp-ui-sideline-ignore-duplicate t))
 
+(use-package rustic)
 
 (use-package projectile
   :config
   (projectile-mode t)
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'helm)
   (setq counsel-projectile-switch-project-action 'projectile-vc)
   (setq projectile-project-compilation-dir "build")
   ;(counsel-projectile-mode t)
