@@ -45,7 +45,7 @@
 (use-package projectile
   :config
   (projectile-mode t)
-  (setq projectile-completion-system 'helm)
+  (setq projectile-completion-system 'ivy)
   (setq counsel-projectile-switch-project-action 'projectile-vc)
   (setq projectile-project-compilation-dir "build")
   ;(counsel-projectile-mode t)
