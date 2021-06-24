@@ -24,6 +24,11 @@
 (use-package imenu
   :bind (("M-i" . imenu)))
 
+(use-package hl-line
+  :config
+  (set-face-attribute 'hl-line nil :inherit nil :background "gray6")
+  :init (global-hl-line-mode t))
+
 
 (when (string-equal system-type "darwin")
   ;; used for compiling and calling stuff with eshell
