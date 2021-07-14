@@ -42,18 +42,18 @@
 
 (use-package rustic)
 
-(use-package projectile
+(use-package project
+  :bind (:map project-prefix-map
+	      ("m" . magit-status)
+	      ("l" . vc-print-log))
   :config
-  (projectile-mode t)
-  (setq projectile-completion-system 'ivy)
-  (setq counsel-projectile-switch-project-action 'projectile-vc)
-  (setq projectile-project-compilation-dir "build")
-  ;(counsel-projectile-mode t)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-(use-package persp-projectile
-  :hook projectile
-  :after projectile persp-mode)
+  (setq project-switch-commands
+   '((project-find-file "Find file" nil)
+     (project-find-regexp "Find regexp" nil)
+     (project-dired "Dired" nil)
+     (project-vc-dir "VC-Dir" nil)
+     (project-eshell "Eshell" nil)
+     (magit-status "magit" nil))))
 
 (use-package treemacs
   :init
@@ -115,10 +115,6 @@
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
-
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :hook treemacs)
 
 (use-package treemacs-icons-dired
   :after treemacs dired
