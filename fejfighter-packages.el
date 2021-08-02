@@ -16,12 +16,14 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1))
 
-(use-package flycheck
-  :hook (prog-mode . flycheck-mode))
+(use-package flymake
+  :hook (prog-mode . flymake-mode))
 
-(use-package flycheck-posframe
-  :after flycheck
-  :hook (flycheck-mode-hook . flycheck-posframe-mode))
+(use-package flymake-posframe
+  :straight (flymake-posframe :type git :host github
+                              :repo "Ladicle/flymake-posframe")
+  :after flymake
+  :hook (flymake-mode . flymake-posframe-mode))
 
 
 (use-package display-line-numbers
