@@ -82,6 +82,10 @@
 (use-package imenu-anywhere)
 
 (use-package which-key-posframe
+  :straight (which-key-posframe :type git :host github
+				:repo "fejfighter/which-key-posframe")
+  :init
+  (use-package which-key)
   :config
   (which-key-mode t)
   (which-key-posframe-mode t)
