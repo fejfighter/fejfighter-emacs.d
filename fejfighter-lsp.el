@@ -43,9 +43,11 @@
 (use-package rustic)
 
 (use-package project
+  :after lsp
   :bind (:map project-prefix-map
 	      ("m" . magit-status)
-	      ("l" . vc-print-log))
+	      ("l" . vc-print-log)
+	      ("a" . lsp-clangd-find-other-file))
   :config
   (setq project-switch-commands
    '((project-find-file "Find file" nil)
