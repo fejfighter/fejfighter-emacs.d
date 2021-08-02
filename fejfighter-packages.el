@@ -41,6 +41,7 @@
 (use-package counsel
   :diminish (ivy-mode . "")
   :init
+  (counsel-mode t)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   :bind
   (
@@ -66,6 +67,7 @@
   )
 
 (use-package ivy
+  :diminish (ivy-mode . "")
   :init
   (progn
     (ivy-mode 1)
@@ -74,10 +76,16 @@
 	  ("<f6>" . ivy-resume)))
 
 (use-package ivy-posframe
-  :init (ivy-posframe-mode)
-  )
+  :diminish (ivy-posframe . "")
+  :init (ivy-posframe-mode))
 
 (use-package imenu-anywhere)
+
+(use-package which-key-posframe
+  :config
+  (which-key-mode t)
+  (which-key-posframe-mode t)
+  (setq which-key-posframe-poshandler 'posframe-poshandler-window-bottom-left-corner))
 
 (use-package multiple-cursors
   :defer
