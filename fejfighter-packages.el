@@ -17,7 +17,10 @@
   (setq company-minimum-prefix-length 1))
 
 (use-package flymake
-  :hook (prog-mode . flymake-mode))
+  :hook (prog-mode . flymake-mode)
+  :bind (:map flymake-mode-map
+	      ("M-p" . flymake-goto-prev-error)
+	      ("M-n" . flymake-goto-next-error)))
 
 (use-package flymake-posframe
   :straight (flymake-posframe :type git :host github
