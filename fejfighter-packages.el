@@ -272,6 +272,14 @@
   :config
   (which-key-mode t))
 
+(use-package iedit)
+
+(use-package desktop
+  :config
+  (desktop-save-mode t)
+  (setq desktop-path (list (getenv "HOME") user-emacs-directory)
+	desktop-restore-eager 10))
+
 (use-package gcmh
   :config
   (setq garbage-collection-messages t)
