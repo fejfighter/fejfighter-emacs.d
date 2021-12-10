@@ -100,5 +100,9 @@
   :defer
   :init
   (multiple-cursors-mode t))
+(use-package gcmh
+  :config
+  (setq garbage-collection-messages t)
+  (gcmh-mode t))
 
 (provide 'fejfighter-packages)
