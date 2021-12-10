@@ -30,11 +30,6 @@
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
 
-(use-package flymake-posframe
-  :straight (flymake-posframe :type git :host github
-                              :repo "Ladicle/flymake-posframe")
-  :after flymake
-  :hook (flymake-mode . flymake-posframe-mode))
 (use-package eglot
   :straight (eglot :type git
 		   :host github

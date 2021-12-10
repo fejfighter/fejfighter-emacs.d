@@ -15,7 +15,8 @@
 
 (setq display-line-number-mode t)
 (setq column-number-mode t)
-(setq x-gtk-use-system-tooltips nil)
+(setq x-gtk-use-system-tooltips t)
+
 
 (use-package compile
   :bind (("<f8>" . recompile)
