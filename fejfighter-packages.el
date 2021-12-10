@@ -6,11 +6,19 @@
 (use-package magit
   :bind (("C-x C-g" . magit-status)))
 
+(use-package transient-posframe
+  :config
+  (transient-posframe-mode t))
+
 (use-package company
-  :hook (prog-mode . company-mode))
+  :hook ((prog-mode . company-mode))
+  :diminish company
+  :config
+  (setq company-backends '(company-capf company-cmake)))
 
 (use-package company-posframe
-  :hook (company-mode . company-posframe-mode)
+  :hook ((company-mode . company-posframe-mode))
+  :diminish company-posframe
   :config
   ;; Optionally enable completion-as-you-type behavior.
   (setq company-idle-delay 0)
@@ -33,7 +41,7 @@
   :hook (prog-mode . display-line-numbers-mode))
 
 (use-package yasnippet
-  :commands yas-minor-mode
+  :diminish  yas-minor-mode
   :hook
   (prog-mode . yas-minor-mode))
 
