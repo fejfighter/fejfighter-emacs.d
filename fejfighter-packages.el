@@ -35,6 +35,13 @@
                               :repo "Ladicle/flymake-posframe")
   :after flymake
   :hook (flymake-mode . flymake-posframe-mode))
+(use-package eglot
+  :straight (eglot :type git
+		   :host github
+		   :repo "joaotavora/eglot"))
+
+(use-package docker-tramp)
+
 (use-package project
   :bind (:map project-prefix-map
 	      ("m" . magit-status)
