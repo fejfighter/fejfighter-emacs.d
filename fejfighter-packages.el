@@ -35,6 +35,20 @@
                               :repo "Ladicle/flymake-posframe")
   :after flymake
   :hook (flymake-mode . flymake-posframe-mode))
+(use-package project
+  :bind (:map project-prefix-map
+	      ("m" . magit-status)
+	      ("M" . magit-fetch-all)
+	      ("l" . vc-print-log))
+  :config
+  (setq project-switch-commands
+   '((project-find-file "Find file" nil)
+     (project-find-regexp "Find regexp" nil)
+     (project-dired "Dired" nil)
+     (project-vc-dir "VC-Dir" nil)
+     (project-eshell "Eshell" nil)
+     (magit-status "magit" nil))))
+
 
 
 (use-package display-line-numbers
