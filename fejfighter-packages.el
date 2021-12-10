@@ -67,7 +67,8 @@
   (prog-mode . yas-minor-mode))
 
 (straight-use-package 'cmake-mode)
-(straight-use-package '(tramp :type git :url git://git.savannah.gnu.org/tramp.git ))
+;(straight-use-package '(tramp :type git :url git://git.savannah.gnu.org/tramp.git ))
+
 
 ;; Example configuration for Consult
 (use-package consult
