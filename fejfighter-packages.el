@@ -21,11 +21,11 @@
   :diminish company-posframe
   :config
   ;; Optionally enable completion-as-you-type behavior.
-  (setq company-idle-delay 0)
+  (setq company-idle-delayq 0)
   (setq company-minimum-prefix-length 1))
 
 (use-package flymake
-  :hook (prog-mode . flymake-mode)
+  :hook ((prog-mode . flymake-mode))
   :bind (:map flymake-mode-map
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
@@ -35,7 +35,9 @@
 		   :host github
 		   :repo "joaotavora/eglot"))
 
-(use-package docker-tramp)
+(use-package docker-tramp
+  :config
+  (setq docker-tramp-docker-executable "podman"))
 
 (use-package project
   :bind (:map project-prefix-map
@@ -50,6 +52,7 @@
      (project-vc-dir "VC-Dir" nil)
      (project-eshell "Eshell" nil)
      (magit-status "magit" nil))))
+
 
 
 
@@ -309,5 +312,6 @@
   :config
   (setq garbage-collection-messages t)
   (gcmh-mode t))
+
 
 (provide 'fejfighter-packages)
