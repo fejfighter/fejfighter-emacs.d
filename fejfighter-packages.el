@@ -39,6 +39,11 @@
   :config
   (setq docker-tramp-docker-executable "podman"))
 
+(use-package toolbox-tramp
+  :straight (toolbox-tramp :type git
+			   :host github
+			   :repo "fejfighter/toolbox-tramp"))
+
 (use-package project
   :bind (:map project-prefix-map
 	      ("m" . magit-status)
