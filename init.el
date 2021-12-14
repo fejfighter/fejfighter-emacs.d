@@ -32,7 +32,6 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
 
 (load-file (concat user-emacs-directory "fejfighter-packages.el"))
-(load-file (concat user-emacs-directory "fejfighter-lsp.el"))
 (load-file (concat user-emacs-directory "fejfighter-init.el"))
 
 
