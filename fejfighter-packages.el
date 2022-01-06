@@ -95,6 +95,8 @@
 			   :host github
 			   :repo "fejfighter/toolbox-tramp"))
 
+(use-package rust-mode)
+
 (use-package project
   :straight (:type built-in)
   :bind (:map project-prefix-map
