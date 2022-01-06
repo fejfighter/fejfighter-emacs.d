@@ -74,6 +74,7 @@
   (setq tab-always-indent 'complete))
 
 (use-package flymake
+  :straight (:type built-in)
   :hook ((prog-mode . flymake-mode))
   :bind (:map flymake-mode-map
 	      ("M-p" . flymake-goto-prev-error)
@@ -94,6 +95,7 @@
 			   :repo "fejfighter/toolbox-tramp"))
 
 (use-package project
+  :straight (:type built-in)
   :bind (:map project-prefix-map
 	      ("m" . magit-status)
 	      ("M" . magit-fetch-all)
@@ -111,6 +113,7 @@
 
 
 (use-package display-line-numbers
+  :straight (:type built-in)
   :hook (prog-mode . display-line-numbers-mode))
 
 (use-package yasnippet
@@ -316,6 +319,7 @@
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :straight (:type built-in)
   :init
   (savehist-mode t))
 
@@ -357,10 +361,10 @@
 (use-package iedit)
 
 (use-package desktop
+  :straight (:type built-in)
   :config
   (desktop-save-mode t)
-  (setq desktop-path (list (getenv "HOME") user-emacs-directory)
-	desktop-restore-eager 10))
+  (setq desktop-restore-eager 10))
 
 (use-package gcmh
   :config
