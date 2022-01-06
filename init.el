@@ -3,11 +3,13 @@
 (defvar doom--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 
-;; don't check for  changes on startup, I don't get to modify elisp often
+;; don't check for changes on startup, I don't get to modify elisp often
 (setq straight-check-for-modifications nil)
 
-(if (not (native-comp-available-p))
-    (setq straight-disable-native-compile t))
+(when (featurep
+     'native-compile
+     (if (not (native-comp-available-p))
+	 (setq straight-disable-native-compile t))))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -33,5 +35,4 @@
 
 (load-file (concat user-emacs-directory "fejfighter-packages.el"))
 (load-file (concat user-emacs-directory "fejfighter-init.el"))
-
 
