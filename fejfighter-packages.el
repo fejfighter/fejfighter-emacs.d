@@ -83,7 +83,8 @@
 (use-package eglot
   :straight (eglot :type git
 		   :host github
-		   :repo "joaotavora/eglot"))
+		   :repo "joaotavora/eglot")
+  :hook ((prog-mode . eglot-ensure)))
 
 (use-package docker-tramp
   :config
