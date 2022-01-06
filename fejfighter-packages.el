@@ -10,19 +10,68 @@
   :config
   (transient-posframe-mode t))
 
-(use-package company
-  :hook ((prog-mode . company-mode))
-  :diminish company
-  :config
-  (setq company-backends '(company-capf company-cmake)))
+(use-package corfu
+  ;; Optional customizations
+  :custom
+  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+  ;; (corfu-commit-predicate nil)   ;; Do not commit selected candidates on next input
+  (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
+  (corfu-quit-no-match t)        ;; Automatically quit if there is no match
+  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+  ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
+  ;; (corfu-echo-documentation nil) ;; Disable documentation in the echo area
+  ;; (corfu-scroll-margin 5)        ;; Use scroll margin
 
-(use-package company-posframe
-  :hook ((company-mode . company-posframe-mode))
-  :diminish company-posframe
+  ;; You may want to enable Corfu only for certain modes.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
+  ;; Recommended: Enable Corfu globally.
+  ;; This is recommended since dabbrev can be used globally (M-/).
+  :init
+  (corfu-global-mode))
+
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
+  (kind-icon-use-icon nil)
   :config
-  ;; Optionally enable completion-as-you-type behavior.
-  (setq company-idle-delayq 0)
-  (setq company-minimum-prefix-length 1))
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+(use-package corfu-doc
+  :straight (corfu-doc :type git
+		       :host github
+		       :repo "galeo/corfu-doc")
+  :hook ((corfu-mode . corfu-doc-mode))
+  :bind (:map corfu-map
+	      ("M-p" . corfu-doc-scroll-down)
+	      ("M-n" . corfu-doc-scroll-up)))
+
+;; Use dabbrev with Corfu!
+(use-package dabbrev
+  :straight (:type built-in)
+  ;; Swap M-/ and C-M-/
+  :bind (("M-/" . dabbrev-completion)
+         ("C-M-/" . dabbrev-expand)))
+
+;; A few more useful configurations...
+(use-package emacs
+  :init
+  ;; TAB cycle if there are only few candidates
+  (setq completion-cycle-threshold 3)
+
+  ;; Emacs 28: Hide commands in M-x which do not apply to the current mode.
+  ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
+  ;; (setq read-extended-command-predicate
+  ;;       #'command-completion-default-include-p)
+
+  ;; Enable indentation+completion using the TAB key.
+  ;; `completion-at-point' is often bound to M-TAB.
+  (setq tab-always-indent 'complete))
 
 (use-package flymake
   :hook ((prog-mode . flymake-mode))
