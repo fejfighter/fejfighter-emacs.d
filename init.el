@@ -6,10 +6,11 @@
 ;; don't check for changes on startup, I don't get to modify elisp often
 (setq straight-check-for-modifications nil)
 
-(when (featurep
-     'native-compile
-     (if (not (native-comp-available-p))
-	 (setq straight-disable-native-compile t))))
+(if (and (fboundp 'native-comp-available-p)
+         (native-comp-available-p))
+    (message "Native compilation is available")
+  (setq straight-disable-native-compile t)
+  (message "Native complation is *not* available"))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
