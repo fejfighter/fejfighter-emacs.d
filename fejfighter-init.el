@@ -2,7 +2,7 @@
 ;; My config of small/non-pacakge stuff
 
 ;; Custom File - keep the churn somewhere else
-(setq custom-file (concat user-emacs-directory "fejfighter-custom.el"))
+(setq custom-file (concat cache-dir "/fejfighter-custom.el"))
 ;; this requires emacs 27
 (if (not (file-exists-p custom-file)) (make-empty-file custom-file))
 (load custom-file)
@@ -17,15 +17,20 @@
 (setq column-number-mode t)
 (setq x-gtk-use-system-tooltips t)
 
+(setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
+
 
 (use-package compile
+  :straight (:type built-in)
   :bind (("<f8>" . recompile)
 	 ("C-<f8>" . compile)))
 
 (use-package imenu
+  :straight (:type built-in)
   :bind (("M-i" . imenu)))
 
 (use-package hl-line
+  :straight (:type built-in)
   :config
   (set-face-attribute 'hl-line nil :inherit nil :background "gray6")
   :init (global-hl-line-mode t))

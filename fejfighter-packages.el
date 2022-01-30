@@ -3,11 +3,15 @@
   :config
   (load-theme 'doom-gruvbox t))
 
+(use-package transient
+  :config
+  (setq transient-history-file (concat cache-dir "/transient.el")))
+
 (use-package magit
   :bind (("C-x C-g" . magit-status)))
 
 (use-package transient-posframe
-  :config
+  :init
   (transient-posframe-mode t))
 
 (use-package corfu
@@ -16,7 +20,7 @@
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-commit-predicate nil)   ;; Do not commit selected candidates on next input
-  (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
+  ;(corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
   (corfu-quit-no-match t)        ;; Automatically quit if there is no match
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
@@ -110,9 +114,8 @@
      (project-dired "Dired" nil)
      (project-vc-dir "VC-Dir" nil)
      (project-eshell "Eshell" nil)
-     (magit-status "magit" nil))))
-
-
+     (magit-status "magit" 109))
+  project-list-file (concat cache-dir "/projects")))
 
 
 (use-package display-line-numbers
@@ -125,7 +128,17 @@
   (prog-mode . yas-minor-mode))
 
 (straight-use-package 'cmake-mode)
-;(straight-use-package '(tramp :type git :url git://git.savannah.gnu.org/tramp.git ))
+
+(use-package tramp
+  :straight (:type built-in)
+  :config
+  (setq tramp-persistency-file-name (concat cache-dir "/tramp")))
+
+(use-package bookmark
+  :straight (:type built-in)
+  :config
+  (setq bookmark-default-file (concat cache-dir "/bookmarks")))
+
 
 
 ;; Example configuration for Consult
@@ -324,7 +337,9 @@
 (use-package savehist
   :straight (:type built-in)
   :init
-  (savehist-mode t))
+  (savehist-mode t)
+  :config
+  (setq savehist-file (concat cache-dir "/history")))
 
 ;; A few more useful configurations...
 (use-package emacs

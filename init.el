@@ -6,9 +6,16 @@
 ;; don't check for changes on startup, I don't get to modify elisp often
 (setq straight-check-for-modifications nil)
 
+;; ste the cache-dir for this box, use it for storing files we don't have under version control
+(require 'xdg)
+(defvar cache-dir (concat (xdg-cache-home) "/emacs"))
+
 (if (and (fboundp 'native-comp-available-p)
          (native-comp-available-p))
-    (message "Native compilation is available")
+    (progn (message "Native compilation is available")
+	   (let ((path (concat cache-dir "/eln-dir")))
+	     (setq native-compile-target-directory path)
+	     (add-to-list 'native-comp-eln-load-path path)))
   (setq straight-disable-native-compile t)
   (message "Native complation is *not* available"))
 
@@ -27,6 +34,7 @@
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
+(setq straight-base-dir cache-dir)
 
 
 ;; often build emacs from source and prefix with /usr/local
