@@ -1,7 +1,15 @@
 ;; -*- lexical-binding: t; -*-
+(require 'fejfighter-platform)
+
 (use-package doom-themes
   :config
   (load-theme 'doom-gruvbox t))
+
+(use-package gcmh
+  :config
+  (setq garbage-collection-messages t)
+  (gcmh-mode t))
+
 
 (use-package transient
   :config
@@ -62,28 +70,6 @@
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand)))
 
-;; A few more useful configurations...
-(use-package emacs
-  :init
-  ;; TAB cycle if there are only few candidates
-  (setq completion-cycle-threshold 3)
-
-  ;; Emacs 28: Hide commands in M-x which do not apply to the current mode.
-  ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
-  ;; (setq read-extended-command-predicate
-  ;;       #'command-completion-default-include-p)
-
-  ;; Enable indentation+completion using the TAB key.
-  ;; `completion-at-point' is often bound to M-TAB.
-  (setq tab-always-indent 'complete))
-
-(use-package flymake
-  :straight (:type built-in)
-  :hook ((prog-mode . flymake-mode))
-  :bind (:map flymake-mode-map
-	      ("M-p" . flymake-goto-prev-error)
-	      ("M-n" . flymake-goto-next-error)))
-
 (use-package eglot
   :straight (eglot :type git
 		   :host github
@@ -101,45 +87,12 @@
 
 (use-package rust-mode)
 
-(use-package project
-  :straight (:type built-in)
-  :bind (:map project-prefix-map
-	      ("m" . magit-status)
-	      ("M" . magit-fetch-all)
-	      ("l" . vc-print-log))
-  :config
-  (setq project-switch-commands
-   '((project-find-file "Find file" nil)
-     (project-find-regexp "Find regexp" nil)
-     (project-dired "Dired" nil)
-     (project-vc-dir "VC-Dir" nil)
-     (project-eshell "Eshell" nil)
-     (magit-status "magit" 109))
-  project-list-file (concat cache-dir "/projects")))
-
-
-(use-package display-line-numbers
-  :straight (:type built-in)
-  :hook (prog-mode . display-line-numbers-mode))
-
 (use-package yasnippet
   :diminish  yas-minor-mode
   :hook
   (prog-mode . yas-minor-mode))
 
-(straight-use-package 'cmake-mode)
-
-(use-package tramp
-  :straight (:type built-in)
-  :config
-  (setq tramp-persistency-file-name (concat cache-dir "/tramp")))
-
-(use-package bookmark
-  :straight (:type built-in)
-  :config
-  (setq bookmark-default-file (concat cache-dir "/bookmarks")))
-
-
+(use-package cmake-mode)
 
 ;; Example configuration for Consult
 (use-package consult
@@ -261,10 +214,9 @@
 
 (use-package embark
   :ensure t
-
   :bind
   (("C-." . embark-act)         ;; pick some comfortable binding
-   ("C-;" . embark-dwim)        ;; good alternative: M-.
+   ("C-M-;" . embark-dwim)        ;; good alternative: M-.
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
 
   :init
@@ -327,41 +279,12 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 
-(defun just-one-face (fn &rest args)
-  (let ((orderless-match-faces [completions-common-part]))
-    (apply fn args)))
+;; (defun just-one-face (fn &rest args)
+;;   (let ((orderless-match-faces [completions-common-part]))
+;;     (apply fn args)))
 
-(advice-add 'company-capf--candidates :around #'just-one-face)
+;; (advice-add 'company-capf--candidates :around #'just-one-face)
 
-;; Persist history over Emacs restarts. Vertico sorts by history position.
-(use-package savehist
-  :straight (:type built-in)
-  :init
-  (savehist-mode t)
-  :config
-  (setq savehist-file (concat cache-dir "/history")))
-
-;; A few more useful configurations...
-(use-package emacs
-  :init
-  ;; Add prompt indicator to `completing-read-multiple'.
-  ;; Alternatively try `consult-completing-read-multiple'.
-  (defun crm-indicator (args)
-    (cons (concat "[CRM] " (car args)) (cdr args)))
-  (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
-
-  ;; Do not allow the cursor in the minibuffer prompt
-  (setq minibuffer-prompt-properties
-        '(read-only t cursor-intangible t face minibuffer-prompt))
-  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-
-  ;; Emacs 28: Hide commands in M-x which do not work in the current mode.
-  ;; Vertico commands are hidden in normal buffers.
-  ;; (setq read-extended-command-predicate
-  ;;       #'command-completion-default-include-p)
-
-  ;; Enable recursive minibuffers
-  (setq enable-recursive-minibuffers t))
 
 (use-package consult-eglot
   :after eglot consult
@@ -377,17 +300,5 @@
   (which-key-mode t))
 
 (use-package iedit)
-
-(use-package desktop
-  :straight (:type built-in)
-  :config
-  (desktop-save-mode t)
-  (setq desktop-restore-eager 10))
-
-(use-package gcmh
-  :config
-  (setq garbage-collection-messages t)
-  (gcmh-mode t))
-
 
 (provide 'fejfighter-packages)
