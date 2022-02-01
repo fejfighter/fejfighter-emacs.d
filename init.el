@@ -10,11 +10,13 @@
 	  (lambda ()
 	    (setq file-name-handler-alist doom--file-name-handler-alist)))
 
-(require 'fejfighter-platform)
-(require 'fejfighter-straight)
-(require 'fejfighter-packages)
-(load-file (concat user-emacs-directory "fejfighter-platform.el"))
-(load-file (concat user-emacs-directory "fejfighter-straight.el"))
-(load-file (concat user-emacs-directory "fejfighter-packages.el"))
+;; simple loader function to reduce repeated code
+(defun fej-load (file)
+  (let* ((filename (concat "fejfighter-" file ".el"))
+	 (full-path (expand-file-name filename user-emacs-directory)))
+    (load-file full-path)))
 
-(load-file (concat user-emacs-directory "fejfighter-init.el"))
+(fej-load "platform")
+(fej-load "straight")
+(fej-load "packages")
+(fej-load "init")
