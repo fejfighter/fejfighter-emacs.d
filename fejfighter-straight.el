@@ -34,3 +34,4 @@
 (setq straight-use-package-by-default t)
 (setq use-package-enable-imenu-support t)
 
+(provide 'fejfighter-straight)
