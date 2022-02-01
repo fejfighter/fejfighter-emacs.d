@@ -38,6 +38,8 @@
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
+(setq use-package-enable-imenu-support t)
+
 
 
 ;; often build emacs from source and prefix with /usr/local
