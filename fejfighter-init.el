@@ -17,6 +17,11 @@
 
 (setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
 
+(use-package svg-lib
+  :straight (:type built-in)
+  :config
+  (setq svg-lib-icons-dir (expand-file-name "svg-lib/" cache-dir)))
+
 (use-package display-line-numbers
   :straight (:type built-in)
   :hook (prog-mode . display-line-numbers-mode))
