@@ -76,7 +76,7 @@
 		   :repo "joaotavora/eglot")
   :hook ((prog-mode . eglot-ensure))
   :config
-  (setq eglot-server-programs `((c++-mode c-mode) . ("clangd" "-j=4" "--background-index" "--malloc-trim" "--log=error"))))
+  (setq eglot-server-programs `((c++-mode c-mode) . (("clangd" "-j=4" "--background-index" "--malloc-trim" "--log=error")))))
 
 (use-package docker-tramp
   :config
