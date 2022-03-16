@@ -74,9 +74,13 @@
   :straight (eglot :type git
 		   :host github
 		   :repo "joaotavora/eglot")
-  :hook ((prog-mode . eglot-ensure))
+  :hook (((c-mode c++-mode) . eglot-ensure))
   :config
-  (setq eglot-server-programs `(((c++-mode c-mode) . ("clangd" "-j=4" "--background-index" "--malloc-trim" "--log=error")))))
+  (setq eglot-server-programs `(((c++-mode c-mode) . ("clangd"
+						      "-j=4"
+						      "--background-index"
+						      "--malloc-trim"
+						      "--log=error")))))
 
 (use-package docker-tramp
   :config
@@ -292,6 +296,7 @@
   :after eglot consult
   :bind (:map eglot-mode-map
 	      ([remap xref-find-apropos] . consult-eglot-symbols)
+	      ("M-g s" . eglot-code-symbols)
 	      ("M-g a" . eglot-code-actions)))
 
 (use-package imenu-anywhere)
