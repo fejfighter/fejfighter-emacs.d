@@ -283,7 +283,7 @@
   :init
   (setq completion-styles '(orderless)
         completion-category-defaults nil
-        completion-category-overrides '((file (styles partial-completion)))))
+        completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; (defun just-one-face (fn &rest args)
 ;;   (let ((orderless-match-faces [completions-common-part]))
