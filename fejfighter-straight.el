@@ -1,10 +1,10 @@
 (require 'fejfighter-platform)
 
 ;; tell straight where to start looking/ pulling to
-(defvar straight-base-dir cache-dir)
+(defvar straight-base-dir data-dir)
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" cache-dir))
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" data-dir))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer

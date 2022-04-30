@@ -8,15 +8,6 @@
 (if (not (file-exists-p custom-file)) (make-empty-file custom-file))
 (load custom-file)
 
-
-; shorten yes or no
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(setq column-number-mode t)
-(setq x-gtk-use-system-tooltips t)
-
-(setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
-
 (use-package svg-lib
   :straight (:type built-in)
   :config
@@ -47,6 +38,11 @@
   :bind (:map flymake-mode-map
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
+
+(use-package eshell
+  :straight (:type built-in)
+  :config
+  (setq eshell-directory-name (concat cache-dir "/eshell")))
 
 (use-package tramp
   :straight (:type built-in)
@@ -121,6 +117,15 @@
   (show-paren-mode t);
   ;; leave emacs blank when started
   (setq inhibit-startup-screen t)
+
+  ; shorten yes or no
+  (setq use-short-answers t)
+
+  (setq column-number-mode t)
+  (setq x-gtk-use-system-tooltips t)
+
+  (setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
+
 
   ;; Emoji set
   (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
