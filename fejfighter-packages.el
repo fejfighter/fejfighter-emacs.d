@@ -43,7 +43,7 @@
   ;; Recommended: Enable Corfu globally.
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
-  (corfu-global-mode))
+  (global-corfu-mode))
 
 (use-package kind-icon
   :ensure t
