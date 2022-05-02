@@ -86,6 +86,20 @@
      (project-eshell "Eshell" nil)
      (magit-status "magit" 109))))
 
+(use-package cc-mode
+  :straight (:type built-in)
+  :after eglot
+  :hook (((c-mode c++-mode) . eglot-ensure))
+  :init
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd"
+						      "-j=4"
+						      "--background-index"
+						      "--malloc-trim"
+						      "--pretty"
+						      "--log=verbose"
+						      ))))
+
+
 (use-package emacs
   :init
   (setq completion-cycle-threshold 3)
