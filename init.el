@@ -10,13 +10,17 @@
 	  (lambda ()
 	    (setq file-name-handler-alist doom--file-name-handler-alist)))
 
-;; simple loader function to reduce repeated code
-(defun fej-load (file)
-  (let* ((filename (concat "fejfighter-" file ".el"))
-	 (full-path (expand-file-name filename user-emacs-directory)))
-    (load-file full-path)))
+;; simple loader macro to reduce repeated code
+(defmacro fej-req (file &optional noerror)
+  `(let* ((reqname (concat "fejfighter-" ,file))
+	  (req (intern reqname))
+	  (filename (expand-file-name (concat reqname ".el") user-emacs-directory)))
+    (require req filename ,noerror)))
 
-(fej-load "platform")
-(fej-load "straight")
-(fej-load "packages")
-(fej-load "init")
+
+(fej-req "platform")
+(fej-req "straight")
+(fej-req "packages")
+(fej-req "init")
+(fej-req "work" 'noerror)
+
