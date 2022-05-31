@@ -15,6 +15,15 @@
   :config
   (setq transient-history-file (concat cache-dir "/transient.el")))
 
+
+(defun auto-display-magit-process-buffer (&rest args)
+  "Automatically display the process buffer when it is updated."
+  (let ((magit-display-buffer-noselect t))
+    (magit-process-buffer)))
+
+(advice-add 'magit-process-set-mode-line-error-status :before
+	      #'auto-display-magit-process-buffer)
+
 (use-package magit
   :bind (("C-x C-g" . magit-status)))
 
