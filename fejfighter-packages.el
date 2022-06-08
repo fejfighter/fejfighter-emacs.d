@@ -91,7 +91,11 @@
 			   :host github
 			   :repo "fejfighter/toolbox-tramp"))
 
-(use-package rust-mode)
+(use-package rust-mode
+  :after eglot
+  :hook (rust-mode . eglot-ensure)
+  :init
+  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
 
 (use-package yasnippet
   :diminish  yas-minor-mode
