@@ -34,4 +34,7 @@
 (setq straight-use-package-by-default t)
 (setq use-package-enable-imenu-support t)
 
+(setq straight-host-usernames
+      '((github . "fejfighter")))
+
 (provide 'fejfighter-straight)

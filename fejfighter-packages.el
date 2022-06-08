@@ -1,17 +1,21 @@
 ;; -*- lexical-binding: t; -*-
 (require 'fejfighter-platform)
 
+(use-package esup
+  :defer 2)
+
 (use-package doom-themes
   :config
   (load-theme 'doom-gruvbox t))
 
 (use-package gcmh
+  :defer 1
   :config
   (setq garbage-collection-messages t)
   (gcmh-mode t))
 
-
 (use-package transient
+  :defer 2
   :config
   (setq transient-history-file (concat cache-dir "/transient.el")))
 
@@ -23,15 +27,17 @@
 
 (advice-add 'magit-process-set-mode-line-error-status :before
 	      #'auto-display-magit-process-buffer)
-
 (use-package magit
+  :defer 2
   :bind (("C-x C-g" . magit-status)))
 
 (use-package transient-posframe
+  :defer 2
   :init
   (transient-posframe-mode t))
 
 (use-package corfu
+  :defer 1
   ;; Optional customizations
   :custom
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -55,6 +61,7 @@
   (global-corfu-mode))
 
 (use-package kind-icon
+  :defer 1
   :ensure t
   :after corfu
   :custom
@@ -80,13 +87,18 @@
          ("C-M-/" . dabbrev-expand)))
 
 (use-package eglot
+  :defer 2
   :straight (eglot :type git
 		   :host github
-		   :repo "joaotavora/eglot")
+		   :repo "joaotavora/eglot"
+		   :fork (:host github
+			  :user "fejfighter"
+			  :branch "semantic-tokens"))
   :config
   (setq eglot-server-programs `()))
 
 (use-package toolbox-tramp
+  :defer 1
   :straight (toolbox-tramp :type git
 			   :host github
 			   :repo "fejfighter/toolbox-tramp"))
@@ -102,7 +114,9 @@
   :hook
   (prog-mode . yas-minor-mode))
 
-(use-package cmake-mode)
+(use-package cmake-mode
+  :defer 1
+  )
 
 ;; Example configuration for Consult
 (use-package consult
@@ -297,6 +311,7 @@
 
 
 (use-package consult-eglot
+  :defer 1
   :after eglot consult
   :bind (:map eglot-mode-map
 	      ([remap xref-find-apropos] . consult-eglot-symbols)
