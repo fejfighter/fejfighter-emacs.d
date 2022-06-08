@@ -94,11 +94,7 @@
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd"
 						      "-j=4"
 						      "--background-index"
-						      "--malloc-trim"
-						      "--pretty"
-						      "--log=verbose"
-						      ))))
-
+						      "--malloc-trim"))))
 
 (use-package emacs
   :init
