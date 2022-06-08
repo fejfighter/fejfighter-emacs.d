@@ -1,5 +1,15 @@
 (require 'fejfighter-platform)
 
+;; First set the native comp output dir
+(if (and (fboundp 'native-comp-available-p)
+         (native-comp-available-p))
+    (progn (message "Native compilation is available")
+	   (let ((path (concat cache-dir "/eln-dir")))
+	     (setq native-compile-target-directory path)
+	     (add-to-list 'native-comp-eln-load-path path)))
+  (message "Native complation is *not* available"))
+
+
 ;; tell straight where to start looking/ pulling to
 (defvar straight-base-dir data-dir)
 (defvar bootstrap-version)
@@ -18,17 +28,7 @@
 
 ;; don't check for changes on startup, I don't get to modify elisp
 ;; often and `straight-check-all` isn't too hard
-(setq straight-check-for-modifications nil)
-
-
-(if (and (fboundp 'native-comp-available-p)
-         (native-comp-available-p))
-    (progn (message "Native compilation is available")
-	   (let ((path (concat cache-dir "/eln-dir")))
-	     (setq native-compile-target-directory path)
-	     (add-to-list 'native-comp-eln-load-path path)))
-  (setq straight-disable-native-compile t)
-  (message "Native complation is *not* available"))
+;(setq straight-check-for-modifications nil)
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
