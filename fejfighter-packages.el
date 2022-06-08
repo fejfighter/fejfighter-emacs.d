@@ -86,10 +86,6 @@
   :config
   (setq eglot-server-programs `()))
 
-(use-package docker-tramp
-  :config
-  (setq docker-tramp-docker-executable "podman"))
-
 (use-package toolbox-tramp
   :straight (toolbox-tramp :type git
 			   :host github
