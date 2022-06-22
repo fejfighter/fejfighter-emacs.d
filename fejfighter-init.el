@@ -90,7 +90,7 @@
   :straight (:type built-in)
   :after eglot
   :hook (((c-mode c++-mode) . eglot-ensure))
-  :init
+  :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd"
 						      "-j=4"
 						      "--background-index"

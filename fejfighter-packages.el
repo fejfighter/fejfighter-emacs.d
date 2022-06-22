@@ -90,24 +90,24 @@
   :defer 2
   :straight (eglot :type git
 		   :host github
-		   :repo "joaotavora/eglot"
-		   :fork (:host github
-			  :user "fejfighter"
-			  :branch "semantic-tokens"))
-  :config
-  (setq eglot-server-programs `()))
+		   :repo "joaotavora/eglot")
+  :custom
+  (eglot-server-programs `())
+  (eglot-events-buffer-size 0))
 
 (use-package toolbox-tramp
-  :defer 1
   :straight (toolbox-tramp :type git
 			   :host github
-			   :repo "fejfighter/toolbox-tramp"))
+			   :repo "fejfighter/toolbox-tramp")
+  :custom
+  (toolbox-tramp-toolbox-executable "podman") ; use podman when connecting - helps with lsp
+  (toolbox-tramp-flatpak-wrap t))
 
 (use-package rust-mode
   :after eglot
   :hook (rust-mode . eglot-ensure)
   :init
-  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
+  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer" "-v" "-v"))))
 
 (use-package yasnippet
   :diminish  yas-minor-mode
@@ -116,7 +116,8 @@
 
 (use-package cmake-mode
   :defer 1
-  )
+  :init
+  (add-to-list 'eglot-server-programs '(cmake-mode . ("cmake-language-server"))))
 
 ;; Example configuration for Consult
 (use-package consult
