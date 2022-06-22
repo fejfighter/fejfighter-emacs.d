@@ -8,11 +8,11 @@
   :config
   (load-theme 'doom-gruvbox t))
 
-(use-package gcmh
-  :defer 1
-  :config
-  (setq garbage-collection-messages t)
-  (gcmh-mode t))
+;; (use-package gcmh
+;;   :defer 1
+;;   :config
+;;   (setq garbage-collection-messages t)
+;;   (gcmh-mode t))
 
 (use-package transient
   :defer 2
@@ -30,6 +30,8 @@
 (use-package magit
   :defer 2
   :bind (("C-x C-g" . magit-status)))
+
+(use-package git-link)
 
 (use-package transient-posframe
   :defer 2
