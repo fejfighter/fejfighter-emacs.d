@@ -93,8 +93,9 @@
   :straight (eglot :type git
 		   :host github
 		   :repo "joaotavora/eglot")
+  :config
+  (setq eglot-server-programs `())
   :custom
-  (eglot-server-programs `())
   (eglot-events-buffer-size 0))
 
 (use-package toolbox-tramp
@@ -108,7 +109,7 @@
 (use-package rust-mode
   :after eglot
   :hook (rust-mode . eglot-ensure)
-  :init
+  :config
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer" "-v" "-v"))))
 
 (use-package yasnippet
