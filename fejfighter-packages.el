@@ -321,7 +321,7 @@
 	      ("M-g s" . eglot-code-symbols)
 	      ("M-g a" . eglot-code-actions)))
 
-(use-package imenu-anywhere)
+(use-package hyperbole)
 
 (use-package which-key
   :diminish
