@@ -1,3 +1,6 @@
 *~
 /.DS_Store
 /url/cookies
+
+# work should always be local
+fejfighter-work.el
