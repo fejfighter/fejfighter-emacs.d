@@ -93,8 +93,7 @@
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd"
 						      "-j=4"
-						      "--background-index"
-						      "--malloc-trim"))))
+						      "--background-index"))))
 
 (use-package emacs
   :init
