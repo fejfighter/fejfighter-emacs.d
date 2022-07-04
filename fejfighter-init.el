@@ -124,6 +124,9 @@
 
   ;;parens
   (show-paren-mode t);
+
+  (setq indent-tabs-mode nil)
+
   ;; leave emacs blank when started
   (setq inhibit-startup-screen t)
 
