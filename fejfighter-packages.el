@@ -119,7 +119,8 @@
 
 (use-package cmake-mode
   :defer 1
-  :init
+  :after eglot
+  :config
   (add-to-list 'eglot-server-programs '(cmake-mode . ("cmake-language-server"))))
 
 ;; Example configuration for Consult
