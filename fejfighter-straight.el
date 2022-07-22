@@ -1,4 +1,10 @@
 (require 'fejfighter-platform)
+(require 'comp)
+
+(let ((deny-list '("\\(?:[/\\\\]\\.dir-locals\\.el$\\)")))
+  (if (boundp 'native-comp-deferred-compilation-deny-list)
+      (setq native-comp-deferred-compilation-deny-list deny-list)
+    (setq comp-deferred-compilation-deny-list deny-list)))
 
 ;; First set the native comp output dir
 (if (and (fboundp 'native-comp-available-p)
@@ -9,17 +15,18 @@
 	     (add-to-list 'native-comp-eln-load-path path)))
   (message "Native complation is *not* available"))
 
-
 ;; tell straight where to start looking/ pulling to
-(defvar straight-base-dir data-dir)
+(defvar straight-base-dir state-dir)
 (defvar bootstrap-version)
+(defvar straight-repository-branch "develop")
+
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" data-dir))
-      (bootstrap-version 5))
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" state-dir))
+      (bootstrap-version 6))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))

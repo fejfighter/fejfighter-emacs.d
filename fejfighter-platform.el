@@ -1,10 +1,11 @@
-
 (defvar cache-dir (concat user-emacs-directory "cache"))
+(defvar state-dir (concat user-emacs-directory "state"))
 (defvar data-dir (concat user-emacs-directory "data"))
 
 (when (string-equal system-type "darwin")
-  (setq cache-dir "~/Library/Caches/emacs")
-  (setq data-dir "~/Library/Application Support/emacs")
+  (setq cache-dir "~/Library/Caches/emacs"
+	data-dir "~/Library/Application Support/emacs"
+	state-dir "~/Library/Application Support/emacs"))
   ;; used for compiling and calling stuff with eshell
   (setenv "PATH"
           (concat
@@ -31,8 +32,9 @@
 (when (string-equal system-type "gnu/linux")
   ;; set the cache-dir for this box, use it for storing files we don't have under version control
   (require 'xdg)
-  (setq cache-dir (concat (xdg-cache-home) "/emacs"))
-  (setq data-dir (concat (xdg-data-home) "/emacs"))
+  (setq cache-dir (concat (xdg-cache-home) "/emacs")
+	data-dir (concat (xdg-data-home) "/emacs")
+	state-dir (concat (xdg-state-home) "/emacs"))
   
   ;; used for compiling and calling stuff with eshell
   (setenv "PATH"
