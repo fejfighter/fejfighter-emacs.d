@@ -5,7 +5,7 @@
 (when (string-equal system-type "darwin")
   (setq cache-dir "~/Library/Caches/emacs"
 	data-dir "~/Library/Application Support/emacs"
-	state-dir "~/Library/Application Support/emacs"))
+	state-dir "~/Library/Application Support/emacs")
   ;; used for compiling and calling stuff with eshell
   (setenv "PATH"
           (concat
