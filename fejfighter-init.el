@@ -45,6 +45,7 @@
   (setq eshell-directory-name (concat cache-dir "/eshell")))
 
 (use-package tramp
+  :defer 1
   :straight (:type built-in)
   :config
   (setq tramp-persistency-file-name (concat cache-dir "/tramp")))
