@@ -102,6 +102,7 @@
   :straight (toolbox-tramp :type git
 			   :host github
 			   :repo "fejfighter/toolbox-tramp")
+  :defer 1
   :custom
   (toolbox-tramp-toolbox-executable "podman") ; use podman when connecting - helps with lsp
   (toolbox-tramp-flatpak-wrap t))
