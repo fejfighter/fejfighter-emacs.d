@@ -19,8 +19,7 @@
   :config
   (setq transient-history-file (concat cache-dir "/transient.el")))
 
-
-(defun auto-display-magit-process-buffer (&rest args)
+(defun auto-display-magit-process-buffer (&optional args)
   "Automatically display the process buffer when it is updated."
   (let ((magit-display-buffer-noselect t))
     (magit-process-buffer)))
