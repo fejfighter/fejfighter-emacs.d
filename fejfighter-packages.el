@@ -322,7 +322,8 @@
 	      ("M-g s" . eglot-code-symbols)
 	      ("M-g a" . eglot-code-actions)))
 
-(use-package hyperbole)
+(use-package hyperbole
+  :defer 2)
 
 (use-package which-key
   :diminish
