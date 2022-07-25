@@ -2,17 +2,16 @@
 (require 'comp)
 
 (let ((deny-list '("\\(?:[/\\\\]\\.dir-locals\\.el$\\)")))
-  (if (boundp 'native-comp-deferred-compilation-deny-list)
-      (setq native-comp-deferred-compilation-deny-list deny-list)
-    (setq comp-deferred-compilation-deny-list deny-list)))
+      (setq native-comp-deferred-compilation-deny-list deny-list))
 
 ;; First set the native comp output dir
 (if (and (fboundp 'native-comp-available-p)
          (native-comp-available-p))
     (progn (message "Native compilation is available")
-	   (let ((path (concat cache-dir "/eln-dir")))
+	   (let ((path (concat cache-dir "/eln-dir/"))
+		 (base (car (last native-comp-eln-load-path))))
 	     (setq native-compile-target-directory path)
-	     (add-to-list 'native-comp-eln-load-path path)))
+	     (setq native-comp-eln-load-path (list path base))))
   (message "Native complation is *not* available"))
 
 ;; tell straight where to start looking/ pulling to
