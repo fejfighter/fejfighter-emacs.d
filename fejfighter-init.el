@@ -146,7 +146,10 @@
   ;; hide the menu bar and tool bar
   (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
   (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-  (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)))
+  (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+  :custom
+   (auth-sources ("~/.authinfo.gpg" "~/.netrc")))
 
 (setq default-directory "~/dev/")
 
