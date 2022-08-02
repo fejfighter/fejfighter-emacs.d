@@ -34,11 +34,13 @@
 
 (use-package transient-posframe
   :defer 2
+  :if window-system
   :init
   (transient-posframe-mode t))
 
 (use-package corfu
   :defer 1
+  :if window-system
   ;; Optional customizations
   :custom
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -60,6 +62,12 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode))
+
+(use-package corfu-terminal
+  :unless window-system
+  :straight (corfu-terminal
+	     :type git
+	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
 
 (use-package kind-icon
   :defer 1
@@ -288,6 +296,7 @@
     :type git
     :host github
     :repo "tumashu/vertico-posframe")
+  :if window-system
   :init
   (vertico-posframe-mode t)
   :config
