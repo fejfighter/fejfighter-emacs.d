@@ -1,0 +1,25 @@
+* Fejfighter's emacs config
+
+This is my long suffering emacs configuration, feel free to steal bits or the whole lot, I've done the same in some form or another.
+As this tends to be a focussed, rather than an all encomapssing history of my work, so it does get culled or cleaned up when I feel that way inclined.
+Sometimes this occurs quite abruptly.
+
+** Use cases
+Primarily I have been a C programmer for most of the life of this config and it still takes pride of place, more recently I have taken on C++ work which is disctinct in emacs, but similar enough that config isn't too hard.
+This is tradtionally paired with Cmake for my projects, but has seen some meson work as well.
+Outside of paid work, I have some stuff setup for rust to investigate.
+
+** Quirks
+*** Prefers `XDG_CONFIG_HOME`
+At least on linux, my config is found in `XDG_CONFIG_HOME`, usually `$HOME/.config/emacs` rather than just `$HOME/.emacs`.
+Then all compiled files are output and loaded from `XDG_CACHE_HOME` and finally any downloaded packages or on-the-fly config files are in `XDG_DATA_DIR`.
+This should keep the emacs config dir git clean, and for my specific case, I have it bind mounted read-only from another location that is easier to reach.
+My motivation for this setup is to ensure that changes shown on `git status` are things that I am to blame for.
+
+*** Somewhat Uses MacOS equivalents
+Some of the above applies to equivalent mac cache folders.
+
+*** Aggressively Follows Savannah/master branch
+I track upstream and rebuild almost everyday, but it means there might are likely to be changes to interfaces 
+
+
