@@ -67,7 +67,12 @@
   :unless window-system
   :straight (corfu-terminal
 	     :type git
-	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git")
+  :config
+  (use-package popon
+    :straight (popon
+	       :type git
+	       :repo "https://codeberg.org/akib/emacs-popon.git")))
 
 (use-package kind-icon
   :defer 1
