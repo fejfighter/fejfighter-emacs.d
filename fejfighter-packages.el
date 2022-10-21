@@ -153,11 +153,6 @@
   :config
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer" "-v" "-v"))))
 
-(use-package yasnippet
-  :diminish  yas-minor-mode
-  :hook
-  (prog-mode . yas-minor-mode))
-
 (use-package cmake-mode
   :defer 1
   :after eglot
