@@ -365,14 +365,14 @@
 (use-package which-key
   :defer 2
   :diminish WK
-  :init
+  :config
   (which-key-mode t))
 
 (use-package which-key-posframe
   :diminish t
   :after which-key
-  :init
-  (which-key-posframe-mode t)
+  :hook
+  (which-key-mode . which-key-posframe-mode )
   :config
   (setq which-key-posframe-poshandler 'posframe-poshandler-frame-bottom-left-corner))
 
@@ -382,7 +382,7 @@
   :diminish ELDOC-BOX
   :defer 2
   :after eldoc
-  :init
+  :config
   (eldoc-box-hover-at-point-mode t))
 
 
