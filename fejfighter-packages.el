@@ -380,4 +380,12 @@
 
 (use-package iedit)
 
+(use-package eldoc-box
+  :defer 3
+  :after eldoc
+  :config
+  (eldoc-box-hover-at-point-mode t)
+  )
+
+
 (provide 'fejfighter-packages)
