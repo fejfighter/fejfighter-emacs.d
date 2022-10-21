@@ -104,6 +104,10 @@
   :custom
   (eglot-events-buffer-size 0))
 
+(use-package eldoc
+  :straight (:type built-in)
+  :config
+  (setq eldoc-idle-delay 1.5))
 
 (use-package emacs
   :init
