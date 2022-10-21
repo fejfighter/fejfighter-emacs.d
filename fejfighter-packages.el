@@ -368,9 +368,15 @@
   :defer 2)
 
 (use-package which-key
+  :defer 2
   :diminish
   :config
   (which-key-mode t))
+
+(use-package which-key-posframe  :diminish
+  :after which-key
+  :config
+  (which-key-posframe-mode t))
 
 (use-package iedit)
 
