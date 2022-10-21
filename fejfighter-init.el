@@ -96,6 +96,15 @@
 						      "-j=4"
 						      "--background-index"))))
 
+(use-package eglot
+  :straight (:type built-in)
+  :defer 2
+  :config
+  (setq eglot-server-programs `())
+  :custom
+  (eglot-events-buffer-size 0))
+
+
 (use-package emacs
   :init
   (setq completion-cycle-threshold 3)

@@ -100,16 +100,6 @@
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand)))
 
-(use-package eglot
-  :defer 2
-  :straight (eglot :type git
-		   :host github
-		   :repo "joaotavora/eglot")
-  :config
-  (setq eglot-server-programs `())
-  :custom
-  (eglot-events-buffer-size 0))
-
 (use-package eglot-tempel
   :after eglot
   :straight (eglot-tempel :type git
