@@ -372,13 +372,15 @@
   :diminish t
   :after which-key
   :init
-  (which-key-posframe-mode t))
+  (which-key-posframe-mode t)
+  :config
+  (setq which-key-posframe-poshandler 'posframe-poshandler-frame-bottom-left-corner))
 
 (use-package iedit)
 
 (use-package eldoc-box
   :diminish ELDOC-BOX
-  :defer 3
+  :defer 2
   :after eldoc
   :init
   (eldoc-box-hover-at-point-mode t))
