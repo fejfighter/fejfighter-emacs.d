@@ -369,23 +369,24 @@
 
 (use-package which-key
   :defer 2
-  :diminish
-  :config
+  :diminish WK
+  :init
   (which-key-mode t))
 
-(use-package which-key-posframe  :diminish
+(use-package which-key-posframe
+  :diminish t
   :after which-key
-  :config
+  :init
   (which-key-posframe-mode t))
 
 (use-package iedit)
 
 (use-package eldoc-box
+  :diminish ELDOC-BOX
   :defer 3
   :after eldoc
-  :config
-  (eldoc-box-hover-at-point-mode t)
-  )
+  :init
+  (eldoc-box-hover-at-point-mode t))
 
 
 (provide 'fejfighter-packages)
