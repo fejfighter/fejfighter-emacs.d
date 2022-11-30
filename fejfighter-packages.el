@@ -324,7 +324,7 @@
     :type git
     :host github
     :repo "tumashu/vertico-posframe")
-  :if window-system
+  :if (string-equal window-system "pgtk")
   :init
   (vertico-posframe-mode t)
   :config
