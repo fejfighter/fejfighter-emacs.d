@@ -142,6 +142,7 @@
 
 
 (use-package toolbox-tramp
+  :when (string-equal system-type "gnu/linux")
   :straight (toolbox-tramp :type git
 			   :host github
 			   :repo "fejfighter/toolbox-tramp")
