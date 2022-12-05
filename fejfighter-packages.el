@@ -39,6 +39,7 @@
   (transient-posframe-mode t))
 
 (use-package corfu
+  :straight (:files (:defaults "extensions/*"))
   :defer 1
   :if window-system
   ;; Optional customizations
@@ -61,18 +62,22 @@
   ;; Recommended: Enable Corfu globally.
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
-  (global-corfu-mode))
+  (global-corfu-mode t)
+  (corfu-popupinfo-mode t)
+  (corfu-history-mode t)
+  (corfu-indexed-mode t))
 
-(use-package corfu-terminal
-  :unless window-system
-  :straight (corfu-terminal
-	     :type git
-	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git")
-  :config
-  (use-package popon
-    :straight (popon
-	       :type git
-	       :repo "https://codeberg.org/akib/emacs-popon.git")))
+
+;; (use-package corfu-terminal
+;;   :unless window-system
+;;   :straight (corfu-terminal
+;; 	     :type git
+;; 	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+;;   :config
+;;   (use-package popon
+;;     :straight (popon
+;; 	       :type git
+;; 	       :repo "https://codeberg.org/akib/emacs-popon.git")))
 
 (use-package kind-icon
   :defer 1
@@ -83,15 +88,6 @@
   (kind-icon-use-icons nil)
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
-
-(use-package corfu-doc
-  :straight (corfu-doc :type git
-		       :host github
-		       :repo "galeo/corfu-doc")
-  :hook ((corfu-mode . corfu-doc-mode))
-  :bind (:map corfu-map
-	      ("M-p" . corfu-doc-scroll-down)
-	      ("M-n" . corfu-doc-scroll-up)))
 
 ;; Use dabbrev with Corfu!
 (use-package dabbrev
