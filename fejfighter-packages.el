@@ -383,5 +383,14 @@
   :config
   (eldoc-box-hover-at-point-mode t))
 
+(use-package xterm-color
+  :config
+  (setq compilation-environment '("TERM=xterm-256color"))
+  (advice-add 'compilation-filter :around #'my/advice-compilation-filter))
+
+(defun my/advice-compilation-filter (f proc string)
+  (funcall f proc (xterm-color-filter string)))
+
+
 
 (provide 'fejfighter-packages)
