@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (require 'fejfighter-platform)
 
+(use-package diminish)
 (use-package esup
   :defer 2)
 
@@ -361,12 +362,11 @@
 
 (use-package which-key
   :defer 2
-  :diminish WK
+  :diminish which-key
   :config
   (which-key-mode t))
 
 (use-package which-key-posframe
-  :diminish t
   :after which-key
   :if child-frames-are-widgets
   :hook
@@ -377,10 +377,9 @@
 (use-package iedit)
 
 (use-package eldoc-box
-  :diminish ELDOC-BOX
+  :diminish eldoc-box-hover-mode
   :if child-frames-are-widgets
   :defer 2
-  :after eldoc
   :config
   (eldoc-box-hover-at-point-mode t))
 
