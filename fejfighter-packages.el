@@ -34,7 +34,7 @@
 
 (use-package transient-posframe
   :defer 2
-  :if window-system
+  :if child-frames-are-widgets
   :init
   (transient-posframe-mode t))
 
@@ -325,7 +325,7 @@
     :type git
     :host github
     :repo "tumashu/vertico-posframe")
-  :if (string-equal window-system "pgtk")
+  :if child-frames-are-widgets
   :init
   (vertico-posframe-mode t)
   :config
@@ -372,6 +372,7 @@
 (use-package which-key-posframe
   :diminish t
   :after which-key
+  :if child-frames-are-widgets
   :hook
   (which-key-mode . which-key-posframe-mode )
   :config
@@ -381,6 +382,7 @@
 
 (use-package eldoc-box
   :diminish ELDOC-BOX
+  :if child-frames-are-widgets
   :defer 2
   :after eldoc
   :config
