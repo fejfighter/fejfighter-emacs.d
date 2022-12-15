@@ -177,7 +177,7 @@
   (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
   :custom
-   (auth-sources ("~/.authinfo.gpg" "~/.netrc")))
+   (auth-sources '("~/.authinfo.gpg" "~/.netrc")))
 
 (setq default-directory "~/dev/")
 
