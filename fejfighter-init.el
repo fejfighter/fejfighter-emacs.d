@@ -69,8 +69,23 @@
   :config
   (setq savehist-file (concat cache-dir "/history")))
 
+;; I only really use git, stamp on vc-mode....
+(with-eval-after-load 'vc
+  (remove-hook 'find-file-hook 'vc-find-file-hook)
+  (remove-hook 'find-file-hook 'vc-refresh-state)
+  (setq vc-handled-backends nil))
+
+;; As the built-in project.el support expects to use vc-mode hooks to
+;; find the root of projects we need to provide something equivalent
+;; for it.
+(defun git-project-finder (dir)
+  "Integrate .git project roots."
+  (let ((dotgit (and (setq dir (locate-dominating-file dir ".git"))
+                     (expand-file-name dir))))
+    (and dotgit
+         (cons 'transient (file-name-directory dotgit)))))
+
 (use-package project
-  ;;:after magit
   :straight (:type built-in)
   :bind (:map project-prefix-map
 	      ("m" . magit-status)
@@ -78,13 +93,13 @@
 	      ("l" . vc-print-log))
   :custom
   (project-list-file (concat cache-dir "/projects"))
+  :hook (project-find-functions . git-project-finder)
   :config
   (setq project-switch-commands
    '((project-find-file "Find file" nil)
      (project-find-regexp "Find regexp" nil)
      (project-dired "Dired" nil)
-     (project-vc-dir "VC-Dir" nil)
-     (project-eshell "Eshell" nil)
+       (project-eshell "Eshell" nil)
      (magit-status "magit" 109))))
 
 (use-package cc-mode
