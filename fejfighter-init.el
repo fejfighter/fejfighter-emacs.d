@@ -93,14 +93,14 @@
 	      ("l" . vc-print-log))
   :custom
   (project-list-file (concat cache-dir "/projects"))
-  :hook (project-find-functions . git-project-finder)
   :config
   (setq project-switch-commands
    '((project-find-file "Find file" nil)
      (project-find-regexp "Find regexp" nil)
      (project-dired "Dired" nil)
        (project-eshell "Eshell" nil)
-     (magit-status "magit" 109))))
+       (magit-status "magit" 109)))
+  (add-hook 'project-find-functions  #'git-project-finder))
 
 (use-package cc-mode
   :straight (:type built-in)
