@@ -29,6 +29,13 @@
                  (tail (nthcdr (+ 1 pos) use-package-keywords)))
             (append head (list package-vc-use-package-keyword) tail)))))
 
+(cl-defun slot/vc-install (&key (fetcher "github") repo name rev backend)
+  (let* ((url (format "https://www.%s.com/%s" fetcher repo))
+         (iname (when name (intern name)))
+         (package-name (or iname (intern (file-name-base repo)))))
+    (unless (package-installed-p package-name)
+      (package-vc-install url iname rev backend))))
+
 (defun use-package-normalize/:vc (name-symbol keyword args)
   (let ((arg (car args)))
     (pcase arg
