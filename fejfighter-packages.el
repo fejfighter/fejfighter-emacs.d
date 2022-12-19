@@ -136,8 +136,8 @@
 )
 
 (use-package toolbox-tramp
-  :when (string-equal system-type "gnu/linux")
-  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel"))
+  ;:when (string-equal system-type "gnu/linux")
+  :vc (:fetcher "github" :repo "fejfighter/toolbox-tramp"))
 
 (use-package rust-mode
   :after eglot
