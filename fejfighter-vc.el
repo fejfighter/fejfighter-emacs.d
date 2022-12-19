@@ -11,9 +11,9 @@
 (require 'use-package)
 
 (eval-and-compile
-  (setq use-package-always-ensure t))
-					;use-package-always-defer t
-					;use-package-expand-minimally t))
+  (setq use-package-always-ensure t
+	use-package-always-defer t
+	use-package-expand-minimally t))
 
 (require 'cl-lib)
 (require 'use-package-core)
