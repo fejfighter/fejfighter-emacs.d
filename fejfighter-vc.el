@@ -17,7 +17,8 @@
 
 (require 'cl-lib)
 (require 'use-package-core)
-; u/slinchisl/ Tony Zorman
+
+;; u/slinchisl/ Tony Zorman
 (defvar package-vc-use-package-keyword :vc)
 
 (defun package-vc-use-package-set-keyword ()
@@ -71,7 +72,7 @@
 
 ;; register keyword on require
 (package-vc-use-package-set-keyword)
-
+(package-vc-use-package-activate-advice)
 
 ;; (setq package-user-dir (concat state-dir "/elpa"))
 ;; (setq package-gnupghome-dir (concat state-dir "/elpa"))

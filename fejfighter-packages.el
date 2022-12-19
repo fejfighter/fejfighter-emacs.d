@@ -98,37 +98,9 @@
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand)))
 
-(cl-defun slot/vc-install (&key (fetcher "github") repo name rev backend)
-  "Install a package from a remote if it's not already installed.
-This is a thin wrapper around `package-vc-install' in order to
-make non-interactive usage more ergonomic.  Takes the following
-named arguments:
-
-- FETCHER the remote where to get the package (e.g., \"gitlab\").
-  If omitted, this defaults to \"github\".
-
-- REPO should be the name of the repository (e.g.,
-  \"slotThe/arXiv-citation\".
-
-- NAME, REV, and BACKEND are as in `package-vc-install' (which
-  see)."
-  (let* ((url (format "https://www.%s.com/%s" fetcher repo))
-         (iname (when name (intern name)))
-         (pac-name (or iname (intern (file-name-base repo)))))
-    (unless (package-installed-p pac-name)
-      (package-vc-install url iname rev backend))))
-
 (use-package eglot-tempel
   :after eglot
   :vc (:fetcher "github" :repo "fejfighter/eglot-tempel"))
-(package-vc-install "ssh:/git@github.com:fejfighter/eglot-tempel.git" (intern "eglot-tempel") nil 'Git)
-;;; `exercism'
-(use-package exercism
-  :ensure nil
-					; 02nov2021 +slot+
-  :init (slot/vc-install :fetcher "gitlab" :repo "slotThe/exercism")
-  :commands exercism-new)
-(package-vc-install "https://gitlab.com/slotThe/exercism.git" (intern "exercism"))
 
 ;; Configure Tempel
 (use-package tempel
@@ -163,10 +135,9 @@ named arguments:
   ;; (global-tempel-abbrev-mode)
 )
 
-
-;; (use-package toolbox-tramp
-;;   :when (string-equal system-type "gnu/linux")
-;;   :init (slot/vc-install :fetcher "github" :repo "fejfighter/toolbox-tramp"))
+(use-package toolbox-tramp
+  :when (string-equal system-type "gnu/linux")
+  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel"))
 
 (use-package rust-mode
   :after eglot
