@@ -55,4 +55,15 @@
 		  "/bin/"
 		  "/usr/bin/"))))
 
+(require 'comp)
+;; First set the native comp output dir
+(if (and (fboundp 'native-comp-available-p)
+         (native-comp-available-p))
+    (progn (message "Native compilation is available")
+	   (let ((path (concat cache-dir "/eln-dir/"))
+		 (base (car (last native-comp-eln-load-path))))
+	     (setq native-compile-target-directory path)
+	     (setq native-comp-eln-load-path (list path base))))
+  (message "Native complation is *not* available"))
+
 (provide 'fejfighter-platform)

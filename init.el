@@ -1,5 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-
 ;; unset file handling to stop running extra regex on startup, In
 ;; general this is only used for tramp related handling which has no
 ;; value during startup
@@ -19,7 +18,8 @@
 
 
 (fej-req "platform")
-(fej-req "straight")
+(fej-req "vc")
+					;(fej-req "straight")
 (fej-req "packages")
 (fej-req "init")
 (fej-req "work" 'noerror)

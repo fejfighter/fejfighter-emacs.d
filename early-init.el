@@ -7,10 +7,11 @@
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
-;; loaded, but after `early-init-file'. Doom handles package initialization, so
-;; we must prevent Emacs from doing it early!
-(setq package-enable-at-startup nil)
-(advice-add #'package--ensure-init-file :override #'ignore)
+;; loaded, but after `early-init-file'. We need to set
+(require 'xdg)
+(setq package-user-dir (concat (xdg-state-home) "/emacs/elpa"))
+(setq package-gnupghome-dir (concat (xdg-state-home) "/elpa"))
+(setq package-quickstart-file (concat (xdg-state-home) "/package-quickstart.el"))
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (setq tool-bar-mode nil
@@ -27,3 +28,5 @@
 ;; in this file and can conflict with later config (particularly where the
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
+
+

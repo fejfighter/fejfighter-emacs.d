@@ -6,14 +6,15 @@
   :defer 2)
 
 (use-package doom-themes
+  :defer nil
   :config
   (load-theme 'doom-gruvbox t))
 
-;; (use-package gcmh
-;;   :defer 1
-;;   :config
-;;   (setq garbage-collection-messages t)
-;;   (gcmh-mode t))
+(use-package gcmh
+   :defer 1
+   :config
+   (setq garbage-collection-messages t)
+   (gcmh-mode t))
 
 (use-package transient
   :defer 2
@@ -31,7 +32,7 @@
   :defer 2
   :bind (("C-x C-g" . magit-status)))
 
-(use-package git-link)
+;(use-package git-link)
 
 (use-package transient-posframe
   :defer 2
@@ -40,7 +41,7 @@
   (transient-posframe-mode t))
 
 (use-package corfu
-  :straight (:files (:defaults "extensions/*"))
+;  :straight (:files (:defaults "extensions/*"))
   :defer 1
   :if window-system
   ;; Optional customizations
@@ -48,7 +49,7 @@
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-commit-predicate nil)   ;; Do not commit selected candidates on next input
-  ;(corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
+  (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
   (corfu-quit-no-match t)        ;; Automatically quit if there is no match
   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
   ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
@@ -64,9 +65,10 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode t)
-  (corfu-popupinfo-mode t)
-  (corfu-history-mode t)
-  (corfu-indexed-mode t))
+  ;; (corfu-popupinfo-mode t)
+  ;; (corfu-history-mode t)
+  ;; (corfu-indexed-mode t)
+  )
 
 
 ;; (use-package corfu-terminal
@@ -92,17 +94,41 @@
 
 ;; Use dabbrev with Corfu!
 (use-package dabbrev
-  :straight (:type built-in)
   ;; Swap M-/ and C-M-/
   :bind (("M-/" . dabbrev-completion)
          ("C-M-/" . dabbrev-expand)))
 
+(cl-defun slot/vc-install (&key (fetcher "github") repo name rev backend)
+  "Install a package from a remote if it's not already installed.
+This is a thin wrapper around `package-vc-install' in order to
+make non-interactive usage more ergonomic.  Takes the following
+named arguments:
+
+- FETCHER the remote where to get the package (e.g., \"gitlab\").
+  If omitted, this defaults to \"github\".
+
+- REPO should be the name of the repository (e.g.,
+  \"slotThe/arXiv-citation\".
+
+- NAME, REV, and BACKEND are as in `package-vc-install' (which
+  see)."
+  (let* ((url (format "https://www.%s.com/%s" fetcher repo))
+         (iname (when name (intern name)))
+         (pac-name (or iname (intern (file-name-base repo)))))
+    (unless (package-installed-p pac-name)
+      (package-vc-install url iname rev backend))))
+
 (use-package eglot-tempel
   :after eglot
-  :straight (eglot-tempel :type git
-			   :host github
-			   :repo "fejfighter/eglot-tempel")
-  :defer 2)
+  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel"))
+(package-vc-install "ssh:/git@github.com:fejfighter/eglot-tempel.git" (intern "eglot-tempel") nil 'Git)
+;;; `exercism'
+(use-package exercism
+  :ensure nil
+					; 02nov2021 +slot+
+  :init (slot/vc-install :fetcher "gitlab" :repo "slotThe/exercism")
+  :commands exercism-new)
+(package-vc-install "https://gitlab.com/slotThe/exercism.git" (intern "exercism"))
 
 ;; Configure Tempel
 (use-package tempel
@@ -138,12 +164,9 @@
 )
 
 
-(use-package toolbox-tramp
-  :when (string-equal system-type "gnu/linux")
-  :straight (toolbox-tramp :type git
-			   :host github
-			   :repo "fejfighter/toolbox-tramp")
-  :defer 1)
+;; (use-package toolbox-tramp
+;;   :when (string-equal system-type "gnu/linux")
+;;   :init (slot/vc-install :fetcher "github" :repo "fejfighter/toolbox-tramp"))
 
 (use-package rust-mode
   :after eglot
@@ -317,11 +340,6 @@
   )
 
 (use-package vertico-posframe
-  :straight
-  '(vertico-posframe
-    :type git
-    :host github
-    :repo "tumashu/vertico-posframe")
   :if child-frames-are-widgets
   :init
   (vertico-posframe-mode t)
