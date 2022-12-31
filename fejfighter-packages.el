@@ -109,7 +109,9 @@
   ;; (tempel-trigger-prefix "<")
 
   :bind (("M-+" . tempel-complete) ;; Alternative tempel-expand
-         ("M-*" . tempel-insert))
+         ("M-*" . tempel-insert)
+	 (:map tempel-map
+	       ([tab] . tempel-next)))
 
   :init
 
