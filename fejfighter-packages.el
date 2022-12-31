@@ -135,10 +135,10 @@
   ;; either locally or globally. `expand-abbrev' is bound to C-x '.
   ;; (add-hook 'prog-mode-hook #'tempel-abbrev-mode)
   ;; (global-tempel-abbrev-mode)
-)
+  )
 
 (use-package toolbox-tramp
-  ;:when (string-equal system-type "gnu/linux")
+  :demand t
   :vc (:fetcher "github" :repo "fejfighter/toolbox-tramp"))
 
 (use-package rust-mode
