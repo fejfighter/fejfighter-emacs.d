@@ -29,8 +29,13 @@
 (advice-add 'magit-process-set-mode-line-error-status :before
 	      #'auto-display-magit-process-buffer)
 (use-package magit
-  :defer 2
-  :bind (("C-x C-g" . magit-status)))
+  :after project
+  :functions bind-magit-project-status
+  :bind (("C-x C-g" . magit-status)
+	 :map project-prefix-map
+	 ("m" .  magit-project-status))
+  :init
+  (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
 
 ;(use-package git-link)
 
