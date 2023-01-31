@@ -142,10 +142,6 @@
   ;; (global-tempel-abbrev-mode)
   )
 
-(use-package toolbox-tramp
-  :demand t
-  :vc (:fetcher "github" :repo "fejfighter/toolbox-tramp"))
-
 (use-package rust-mode
   :after eglot
   :hook (rust-mode . eglot-ensure)
