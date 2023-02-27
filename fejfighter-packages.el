@@ -144,9 +144,11 @@
 
 (use-package rust-mode
   :after eglot
-  :hook (rust-mode . eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer" "-v" "-v"))))
+  :hook (rust-mode . eglot-ensure))
+
+(use-package go-mode
+  :after eglot
+  :hook (go-mode . eglot-ensure))
 
 (use-package cmake-mode
   :defer 1

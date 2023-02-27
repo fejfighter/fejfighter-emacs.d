@@ -92,8 +92,6 @@
 
 (use-package eglot
   :defer 2
-  :config
-  (setq eglot-server-programs `())
   :custom
   (eglot-events-buffer-size 0))
 
