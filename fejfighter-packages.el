@@ -105,8 +105,8 @@
 
 (use-package eglot-tempel
   :after eglot
-  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel"))
-
+  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel")
+  :hook (eglot-mode eglot-tempel-mode))
 ;; Configure Tempel
 (use-package tempel
   ;; Require trigger prefix before template name when completing.
