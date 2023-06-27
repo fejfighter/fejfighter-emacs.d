@@ -79,7 +79,12 @@
 	      ("l" . vc-print-log))
   :custom
   (project-list-file (concat cache-dir "/projects"))
-  :config
+  :init
+  (setq project-switch-commands
+	'((project-find-regexp "Find regexp")
+	 (project-find-dir "Find directory")
+	 (project-vc-dir "VC-Dir")
+	 (project-eshell "Eshell")))
   )
 
 (use-package cc-mode
@@ -91,9 +96,9 @@
 						      "--background-index"))))
 
 (use-package eglot
-  :defer 2
-  :custom
-  (eglot-events-buffer-size 0))
+  :defer 2)
+  ;; :custom
+  ;; (eglot-events-buffer-size 0))
 
 (use-package eldoc
   :config

@@ -373,8 +373,11 @@
 
 (use-package consult-project-extra
   :bind
-  (("C-x p f" . consult-project-extra-find)
-   ("C-c p o" . consult-project-extra-find-other-window)))
+  (:map project-prefix-map
+	("f" . consult-project-extra-find)
+	("o" . consult-project-extra-find-other-window))
+  :init
+  (add-to-list 'project-switch-commands '(consult-project-extra-find "Find file") t))
 
 (use-package which-key
   :defer 2

@@ -19,9 +19,9 @@
 
 (fej-req "platform")
 (fej-req "vc")
-					;(fej-req "straight")
-(fej-req "packages")
+
 (fej-req "init")
+(fej-req "packages")
 (fej-req "work" 'noerror)
 
 (defun my-cleanup-gc ()
