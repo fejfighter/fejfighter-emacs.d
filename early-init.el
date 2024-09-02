@@ -1,11 +1,12 @@
-;;; early-init.el -*- lexical-binding: t; -*-
+;; early-init.el -*- lexical-binding: t; -*-
 
 ;; Emacs HEAD (27+) introduces early-init.el, which is run before init.el,
 ;; before package and UI initialization happens.
 
 ;; Defer garbage collection further back in the startup process
+(unless 'mps
 (setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6)
+      gc-cons-percentage 0.6))
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. We need to set
@@ -66,7 +67,6 @@
   ;; may introduce down the road.
   (define-advice startup--load-user-init-file (:before (&rest _) init-doom)
     (advice-remove #'load-file #'load-file@silence)))
-
 
 ;;
 ;;; Bootstrap

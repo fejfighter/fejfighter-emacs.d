@@ -16,7 +16,6 @@
 	  (filename (expand-file-name (concat reqname ".el") user-emacs-directory)))
     (require req filename ,noerror)))
 
-
 (fej-req "platform")
 (fej-req "vc")
 

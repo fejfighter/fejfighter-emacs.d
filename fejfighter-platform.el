@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defvar cache-dir (concat user-emacs-directory "cache"))
 (defvar state-dir (concat user-emacs-directory "state"))
 (defvar data-dir (concat user-emacs-directory "data"))

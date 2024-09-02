@@ -129,7 +129,7 @@
   (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
   ;; Enable recursive minibuffers
-  (setq enable-recursive-minibuffers t)
+  (setq enable-recursive-minibuffers nil)
 
   ;;parens
   (show-paren-mode t);
@@ -146,7 +146,6 @@
   (setq x-gtk-use-system-tooltips t)
 
   (setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
-
 
   ;; Emoji set
   (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
@@ -165,6 +164,5 @@
 ;; packages with emacs support normally add files to /usr/share/emacs/site-lisp.
 ;; building locally means it won't get picked up, add it here
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
-
 
 (provide 'fejfighter-init)

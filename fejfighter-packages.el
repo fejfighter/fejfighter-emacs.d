@@ -7,12 +7,13 @@
 
 (use-package doom-themes
   :defer nil
-  :config
+  :init
   (load-theme 'doom-gruvbox t))
 
 (use-package gcmh
-   :defer 1
-   :config
+  :defer 1
+  :unless 'mps
+  :config
    (setq garbage-collection-messages t)
    (gcmh-mode t))
 
@@ -23,6 +24,7 @@
 
 (defun auto-display-magit-process-buffer (&optional args)
   "Automatically display the process buffer when there is an error"
+  (ignore args)
   (let ((magit-display-buffer-noselect t))
     (magit-process-buffer)))
 
@@ -36,8 +38,6 @@
 	 ("m" .  magit-project-status))
   :init
   (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
-
-;(use-package git-link)
 
 (use-package transient-posframe
   :defer 2
@@ -70,9 +70,9 @@
   ;; This is recommended since dabbrev can be used globally (M-/).
   :init
   (global-corfu-mode t)
-  ;; (corfu-popupinfo-mode t)
-  ;; (corfu-history-mode t)
-  ;; (corfu-indexed-mode t)
+  (corfu-popupinfo-mode t)
+  (corfu-history-mode t)
+  (corfu-indexed-mode t)
   )
 
 
@@ -105,8 +105,9 @@
 
 (use-package eglot-tempel
   :after eglot
-  :vc (:fetcher "github" :repo "fejfighter/eglot-tempel")
+  :vc (:url "https://github.com/fejfighter/eglot-tempel.git" :rev :newest)
   :hook (eglot-mode eglot-tempel-mode))
+
 ;; Configure Tempel
 (use-package tempel
   ;; Require trigger prefix before template name when completing.
