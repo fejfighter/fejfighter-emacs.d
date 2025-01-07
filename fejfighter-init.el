@@ -9,61 +9,50 @@
 (load custom-file)
 
 (use-package svg-lib
-  :straight (:type built-in)
   :config
   (setq svg-lib-icons-dir (expand-file-name "svg-lib/" cache-dir)))
 
 (use-package display-line-numbers
-  :straight (:type built-in)
   :hook (prog-mode . display-line-numbers-mode))
 
 (use-package compile
-  :straight (:type built-in)
   :bind (("<f8>" . recompile)
 	 ("C-<f8>" . compile)))
 
 (use-package imenu
-  :straight (:type built-in)
   :bind (("M-i" . imenu)))
 
 (use-package hl-line
-  :straight (:type built-in)
   :config
   (set-face-attribute 'hl-line nil :inherit nil :background "gray6")
   :init (global-hl-line-mode t))
 
 (use-package flymake
-  :straight (:type built-in)
   :hook ((prog-mode . flymake-mode))
   :bind (:map flymake-mode-map
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
 
 (use-package eshell
-  :straight (:type built-in)
   :config
   (setq eshell-directory-name (concat cache-dir "/eshell")))
 
 (use-package tramp
   :defer 1
-  :straight (:type built-in)
   :config
   (setq tramp-persistency-file-name (concat cache-dir "/tramp")))
 
 (use-package bookmark
-  :straight (:type built-in)
   :config
   (setq bookmark-default-file (concat cache-dir "/bookmarks")))
 
 (use-package desktop
-  :straight (:type built-in)
   :config
   (desktop-save-mode t)
   (setq desktop-restore-eager 10))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
-  :straight (:type built-in)
   :init
   (savehist-mode t)
   :config
@@ -72,8 +61,8 @@
 ;; I only really use git, stamp on vc-mode....
 (with-eval-after-load 'vc
   (remove-hook 'find-file-hook 'vc-find-file-hook)
-  (remove-hook 'find-file-hook 'vc-refresh-state)
-  (setq vc-handled-backends nil))
+  (remove-hook 'find-file-hook 'vc-refresh-state))
+  (setq vc-handled-backends '(Git))
 
 ;; As the built-in project.el support expects to use vc-mode hooks to
 ;; find the root of projects we need to provide something equivalent
@@ -86,24 +75,19 @@
          (cons 'transient (file-name-directory dotgit)))))
 
 (use-package project
-  :straight (:type built-in)
   :bind (:map project-prefix-map
-	      ("m" . magit-status)
-	      ("M" . magit-fetch-all)
 	      ("l" . vc-print-log))
   :custom
   (project-list-file (concat cache-dir "/projects"))
-  :config
+  :init
   (setq project-switch-commands
-   '((project-find-file "Find file" nil)
-     (project-find-regexp "Find regexp" nil)
-     (project-dired "Dired" nil)
-       (project-eshell "Eshell" nil)
-       (magit-status "magit" 109)))
-  (add-hook 'project-find-functions  #'git-project-finder))
+	'((project-find-regexp "Find regexp")
+	 (project-find-dir "Find directory")
+	 (project-vc-dir "VC-Dir")
+	 (project-eshell "Eshell")))
+  )
 
 (use-package cc-mode
-  :straight (:type built-in)
   :after eglot
   :hook (((c-mode c++-mode) . eglot-ensure))
   :config
@@ -112,15 +96,11 @@
 						      "--background-index"))))
 
 (use-package eglot
-  :straight (:type built-in)
-  :defer 2
-  :config
-  (setq eglot-server-programs `())
-  :custom
-  (eglot-events-buffer-size 0))
+  :defer 2)
+  ;; :custom
+  ;; (eglot-events-buffer-size 0))
 
 (use-package eldoc
-  :straight (:type built-in)
   :config
   (setq eldoc-idle-delay 1.5))
 
@@ -149,7 +129,7 @@
   (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
   ;; Enable recursive minibuffers
-  (setq enable-recursive-minibuffers t)
+  (setq enable-recursive-minibuffers nil)
 
   ;;parens
   (show-paren-mode t);
@@ -166,7 +146,6 @@
   (setq x-gtk-use-system-tooltips t)
 
   (setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
-
 
   ;; Emoji set
   (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
@@ -185,6 +164,5 @@
 ;; packages with emacs support normally add files to /usr/share/emacs/site-lisp.
 ;; building locally means it won't get picked up, add it here
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
-
 
 (provide 'fejfighter-init)

@@ -9,7 +9,7 @@ Primarily I have been a C programmer for most of the life of this config and it 
 This is tradtionally paired with Cmake for my projects, but has seen some meson work as well.
 Outside of paid work, I have some stuff setup for rust to investigate.
 
-** Quirks
+** Design Choices
 *** Prefers `XDG_CONFIG_HOME`
 At least on linux, my config is found in `XDG_CONFIG_HOME`, usually `$HOME/.config/emacs` rather than just `$HOME/.emacs`.
 Then all compiled files are output and loaded from `XDG_CACHE_HOME` and finally any downloaded packages or on-the-fly config files are in `XDG_DATA_DIR`.
@@ -22,4 +22,8 @@ Some of the above applies to equivalent mac cache folders.
 *** Aggressively Follows Savannah/master branch
 I track upstream and rebuild almost everyday, but it means there might are likely to be changes to interfaces 
 
+*** Prefers Inbuilt and Interfacing Packages
+There has been considerable effort to improve interfaces built into core emacs in recent releases.
+This has triggered a flourish of new packages that build upon those interfaces and interact together as you would expect, rather than creating separate ecosystems.
+Along those lines, this config uses eglot over lsp-mode, vertico over helm/ivy and corfu over company/auto-complete, while they did set the standard, the integrated by default nature of the newer offerings is great.
 
