@@ -1,14 +1,7 @@
 ;; -*- lexical-binding: t; -*-
-(require 'fejfighter-platform)
+(require 'my-platform)
 
 (use-package diminish)
-(use-package esup
-  :defer 2)
-
-(use-package doom-themes
-  :defer nil
-  :init
-  (load-theme 'doom-gruvbox t))
 
 (use-package gcmh
   :defer 1
@@ -17,10 +10,33 @@
    (setq garbage-collection-messages t)
    (gcmh-mode t))
 
-(use-package transient
-  :defer 2
+(use-package doom-themes
+    :ensure t
+    :demand t
+    :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-gruvbox t)
+
+  ;; Enable flashing mode-line on errors
+  ;(doom-themes-visual-bell-config)
+  ;; ;; Enable custom neotree theme (all-the-icons must be installed!)
+  ;; (doom-themes-neotree-config)
+  ;; ;; or for treemacs users
+  ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  ;; (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+(use-package fancy-compilation
+  :ensure t
+  :commands (fancy-compilation-mode)
   :config
-  (setq transient-history-file (concat cache-dir "/transient.el")))
+  (fancy-compilation-mode))
+
+(use-package transient
+  :defer 2)
 
 (defun auto-display-magit-process-buffer (&optional args)
   "Automatically display the process buffer when there is an error"
@@ -38,6 +54,35 @@
 	 ("m" .  magit-project-status))
   :init
   (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
+
+(use-package corfu
+;  :straight (:files (:defaults "extensions/*"))
+  :defer 1
+  :if window-system
+  ;; Optional customizations
+  :custom
+  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+  ;; (corfu-commit-predicate nil)   ;; Do not commit selected candidates on next input
+  (corfu-quit-at-boundary t)     ;; Automatically quit at word boundary
+  (corfu-quit-no-match t)        ;; Automatically quit if there is no match
+  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+  ;; (corfu-preselect-first nil)    ;; Disable candidate preselection
+  ;; (corfu-echo-documentation nil) ;; Disable documentation in the echo area
+  ;; (corfu-scroll-margin 5)        ;; Use scroll margin
+
+  ;; You may want to enable Corfu only for certain modes.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
+  ;; Recommended: Enable Corfu globally.
+  ;; This is recommended since dabbrev can be used globally (M-/).
+  :init
+  (global-corfu-mode t)
+  (corfu-popupinfo-mode t)
+  (corfu-history-mode t)
+  (corfu-indexed-mode t))
 
 (use-package transient-posframe
   :defer 2
@@ -75,18 +120,7 @@
   (corfu-indexed-mode t)
   )
 
-
-;; (use-package corfu-terminal
-;;   :unless window-system
-;;   :straight (corfu-terminal
-;; 	     :type git
-;; 	     :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
-;;   :config
-;;   (use-package popon
-;;     :straight (popon
-;; 	       :type git
-;; 	       :repo "https://codeberg.org/akib/emacs-popon.git")))
-
+ 
 (use-package kind-icon
   :defer 1
   :ensure t
@@ -104,9 +138,9 @@
          ("C-M-/" . dabbrev-expand)))
 
 (use-package eglot-tempel
-  :after eglot
   :vc (:url "https://github.com/fejfighter/eglot-tempel.git" :rev :newest)
-  :hook (eglot-mode eglot-tempel-mode))
+  :init
+  (eglot-tempel-mode t))
 
 ;; Configure Tempel
 (use-package tempel
@@ -147,15 +181,11 @@
   :after eglot
   :hook (rust-mode . eglot-ensure))
 
-(use-package go-mode
-  :after eglot
-  :hook (go-mode . eglot-ensure))
-
 (use-package cmake-mode
   :defer 1
   :after eglot
   :config
-  (add-to-list 'eglot-server-programs '(cmake-mode . ("cmake-language-server"))))
+  (add-to-list 'eglot-server-programs '(cmake-mode . ("neocmakelsp" "--stdio"))))
 
 ;; Example configuration for Consult
 (use-package consult
@@ -328,13 +358,14 @@
 (use-package vertico
   :init
   (vertico-mode)
-
   ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
+  (setq vertico-resize t)
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
   ;; (setq vertico-cycle t)
   )
+
+(use-package posframe)
 
 (use-package vertico-posframe
   :if child-frames-are-widgets
@@ -411,6 +442,4 @@
 (defun my/advice-compilation-filter (f proc string)
   (funcall f proc (xterm-color-filter string)))
 
-
-
-(provide 'fejfighter-packages)
+(provide 'my-packages)
