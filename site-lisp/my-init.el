@@ -1,16 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 ;; My config of built-in or other small stuff
-(require 'fejfighter-platform)
-
-;; Custom File - keep the churn somewhere else
-(setq custom-file (concat cache-dir "/fejfighter-custom.el"))
+(require 'my-platform)
 ;; this requires emacs 27
-(if (not (file-exists-p custom-file)) (make-empty-file custom-file))
-(load custom-file)
-
-(use-package svg-lib
-  :config
-  (setq svg-lib-icons-dir (expand-file-name "svg-lib/" cache-dir)))
+;(if (not (file-exists-p custom-file)) (make-empty-file custom-file))
+;(load custom-file)
 
 (use-package display-line-numbers
   :hook (prog-mode . display-line-numbers-mode))
@@ -28,35 +21,17 @@
   :init (global-hl-line-mode t))
 
 (use-package flymake
+  :after eglot
   :hook ((prog-mode . flymake-mode))
   :bind (:map flymake-mode-map
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
-
-(use-package eshell
-  :config
-  (setq eshell-directory-name (concat cache-dir "/eshell")))
-
-(use-package tramp
-  :defer 1
-  :config
-  (setq tramp-persistency-file-name (concat cache-dir "/tramp")))
-
-(use-package bookmark
-  :config
-  (setq bookmark-default-file (concat cache-dir "/bookmarks")))
 
 (use-package desktop
   :config
   (desktop-save-mode t)
   (setq desktop-restore-eager 10))
 
-;; Persist history over Emacs restarts. Vertico sorts by history position.
-(use-package savehist
-  :init
-  (savehist-mode t)
-  :config
-  (setq savehist-file (concat cache-dir "/history")))
 
 ;; I only really use git, stamp on vc-mode....
 (with-eval-after-load 'vc
@@ -77,8 +52,6 @@
 (use-package project
   :bind (:map project-prefix-map
 	      ("l" . vc-print-log))
-  :custom
-  (project-list-file (concat cache-dir "/projects"))
   :init
   (setq project-switch-commands
 	'((project-find-regexp "Find regexp")
@@ -145,8 +118,6 @@
   (setq column-number-mode t)
   (setq x-gtk-use-system-tooltips t)
 
-  (setq auto-save-list-file-prefix (concat cache-dir "/auto-save-list/.saves-"))
-
   ;; Emoji set
   (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
 
@@ -165,4 +136,4 @@
 ;; building locally means it won't get picked up, add it here
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
 
-(provide 'fejfighter-init)
+(provide 'my-init)
