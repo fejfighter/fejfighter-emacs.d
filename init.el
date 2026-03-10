@@ -17,10 +17,11 @@
   (setq use-package-enable-imenu-support t
         use-package-always-ensure t
 	use-package-always-defer t
-	use-package-expand-minimally t))
+	use-package-expand-minimally t
+	use-package-verbose t))
 
 (require 'my-platform)
-
+(package-initialize)
 (use-package no-littering
   :ensure t
   :demand t

@@ -77,6 +77,15 @@
   :config
   (setq eldoc-idle-delay 1.5))
 
+(use-package tramp
+  :config
+  (setq remote-file-name-inhibit-locks t
+	tramp-use-scp-direct-remote-copying t
+	remote-file-name-inhibit-auto-save-visited t
+	tramp-copy-size-limit (* 1024 1024) ;; 1MB
+	tramp-verbose 2)
+  )
+
 (use-package emacs
   :init
   (setq completion-cycle-threshold 3)
