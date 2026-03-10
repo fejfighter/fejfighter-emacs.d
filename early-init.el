@@ -23,15 +23,15 @@
    (convert-standard-filename
     (expand-file-name  "eln-cache/" cache-dir))))
 
+(setq load-prefer-newer t)
+
 (setq package-user-dir (expand-file-name "elpa" cache-dir)
       package-gnupghome-dir (expand-file-name "elpa/gnupg" cache-dir)
-      package-enable-at-startup nil
+      package-quickstart-file (expand-file-name "package-autostart.elc" cache-dir)
       package-quickstart t)
 
-
-(setq load-prefer-newer t)
-(package-initialize)
 (require 'auto-compile nil 'noerror)
+
 (when (fboundp 'auto-compile)
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
