@@ -1,7 +1,13 @@
 *~
+\#*\#
 /.DS_Store
 /url/cookies
 *.elc
 
 # work should always be local
-site-lisp/my-work.el
+/user-lisp/my-work.el
+/user-lisp/.*.el*
+
+# Cache and localised settings are not worth tracking
+/etc
+/var
