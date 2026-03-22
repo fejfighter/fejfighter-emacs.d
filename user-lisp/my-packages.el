@@ -3,13 +3,6 @@
 
 (use-package diminish)
 
-(use-package gcmh
-  :defer 1
-  :unless 'mps
-  :config
-   (setq garbage-collection-messages t)
-   (gcmh-mode t))
-
 ;; (use-package doom-themes
 ;;   :ensure t
 ;;   :demand t
