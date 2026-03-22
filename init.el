@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+
 ;; unset file handling to stop running
 ;; extra regex on startup, In general this is only used for tramp
 ;; related handling which has no value during startup

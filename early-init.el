@@ -2,6 +2,9 @@
 ;; Emacs HEAD (27+) introduces early-init.el, which is run before init.el,
 ;; before package and UI initialization happens.
 
+;(profiler-start 'cpu)
+;(add-hook 'window-setup-hook 'profiler-stop)
+
 ;; Defer garbage collection further back in the startup process
 (unless 'mps
   (setq gc-cons-threshold most-positive-fixnum
@@ -14,9 +17,8 @@
         (horizontal-scroll-bars)
         (vertical-scroll-bars)))
 
-(defconst home-sitelisp (expand-file-name "site-lisp" user-emacs-directory))
-(add-to-list 'load-path home-sitelisp)
-(require 'my-platform)
+(load-file (expand-file-name "user-lisp/my-platform.el" user-emacs-directory))
+
 
 (when (fboundp 'startup-redirect-eln-cache)
   (startup-redirect-eln-cache

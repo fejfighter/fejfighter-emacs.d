@@ -27,11 +27,10 @@
 	      ("M-p" . flymake-goto-prev-error)
 	      ("M-n" . flymake-goto-next-error)))
 
-(use-package desktop
-  :config
-  (desktop-save-mode t)
-  (setq desktop-restore-eager 10))
-
+;; (use-package desktop
+;;   :config
+;;   (desktop-save-mode t)
+;;   (setq desktop-restore-eager 10))
 
 ;; I only really use git, stamp on vc-mode....
 (with-eval-after-load 'vc

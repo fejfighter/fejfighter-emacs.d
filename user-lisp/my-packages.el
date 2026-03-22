@@ -10,24 +10,28 @@
    (setq garbage-collection-messages t)
    (gcmh-mode t))
 
-(use-package doom-themes
-    :ensure t
-    :demand t
-    :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-gruvbox t)
+;; (use-package doom-themes
+;;   :ensure t
+;;   :demand t
+;;   :config
+;;   (setcdr (assoc 'gnus-group-news-low-empty doom-themes-base-faces)
+;;           '(:inherit 'gnus-group-mail-1-empty :weight 'normal))
+;;   ;; Global settings (defaults)
+;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;   (load-theme 'doom-gruvbox t)
 
-  ;; Enable flashing mode-line on errors
-  ;(doom-themes-visual-bell-config)
-  ;; ;; Enable custom neotree theme (all-the-icons must be installed!)
-  ;; (doom-themes-neotree-config)
-  ;; ;; or for treemacs users
-  ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  ;; (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+;;   ;; Enable flashing mode-line on errors
+;;   ;(doom-themes-visual-bell-config)
+;;   ;; ;; Enable custom neotree theme (all-the-icons must be installed!)
+;;   ;; (doom-themes-neotree-config)
+;;   ;; ;; or for treemacs users
+;;   ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+;;   ;; (doom-themes-treemacs-config)
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config))
+
+(load-theme 'wombat t)
 
 (use-package fancy-compilation
   :ensure t
@@ -249,8 +253,8 @@
    consult-theme :preview-key '(:debounce 0.2 any)
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file consult-xref
-   consult--source-bookmark consult--source-file-register
-   consult--source-recent-file consult--source-project-recent-file
+   consult-source-bookmark consult-source-file-register
+   consult-source-recent-file consult-source-project-recent-file
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
 
@@ -339,6 +343,7 @@
 (use-package posframe)
 
 (use-package vertico-posframe
+  :after posframex
   :if child-frames-are-widgets
   :init
   (vertico-posframe-mode t)
