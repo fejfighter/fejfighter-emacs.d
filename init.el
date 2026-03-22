@@ -21,14 +21,10 @@
 	use-package-expand-minimally t
 	use-package-verbose t))
 
-(require 'my-platform)
 (package-initialize)
 (use-package no-littering
   :ensure t
   :demand t
-  :init
-  (setq no-littering-etc-directory (expand-file-name "config/" data-dir)
-	no-littering-var-directory (expand-file-name "data/" state-dir))
   :config
   ;; Custom File - keep the churn somewhere else
   (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
@@ -39,8 +35,9 @@
 (require 'my-init)
 (require 'my-packages)
 (require 'work nil 'noerror)
+(require 'my-platform)
 ;(require 'my-mail nil 'noerror)
-(require 'my-gnus)
+;(require 'my-gnus)
 
 (unless 'mps
   (defun my-cleanup-gc ()

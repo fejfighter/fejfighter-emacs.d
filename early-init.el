@@ -17,27 +17,21 @@
         (horizontal-scroll-bars)
         (vertical-scroll-bars)))
 
-(load-file (expand-file-name "user-lisp/my-platform.el" user-emacs-directory))
-
-
-(when (fboundp 'startup-redirect-eln-cache)
+(when (and (fboundp 'startup-redirect-eln-cache)
+           (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
   (startup-redirect-eln-cache
    (convert-standard-filename
-    (expand-file-name  "eln-cache/" cache-dir))))
+    (expand-file-name  "var/eln-cache/" user-emacs-directory))))
 
 (setq load-prefer-newer t)
 
-(setq package-user-dir (expand-file-name "elpa" cache-dir)
-      package-gnupghome-dir (expand-file-name "elpa/gnupg" cache-dir)
-      package-quickstart-file (expand-file-name "package-autostart.elc" cache-dir)
-      package-quickstart t)
-
 (require 'auto-compile nil 'noerror)
-
 (when (fboundp 'auto-compile)
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 
+(setq package-quickstart t)
 
 (unless (or (daemonp) noninteractive)
   (let ((old-file-name-handler-alist file-name-handler-alist))
