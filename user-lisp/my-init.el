@@ -41,6 +41,7 @@
 ;; As the built-in project.el support expects to use vc-mode hooks to
 ;; find the root of projects we need to provide something equivalent
 ;; for it.
+;;;###autoload
 (defun git-project-finder (dir)
   "Integrate .git project roots."
   (let ((dotgit (and (setq dir (locate-dominating-file dir ".git"))
@@ -85,6 +86,11 @@
 	tramp-verbose 2)
   )
 
+;;;###autoload
+(defun crm-indicator (args)
+  (cons (concat "[CRM] " (car args)) (cdr args)))
+
+
 (use-package emacs
   :init
   (setq completion-cycle-threshold 3)
@@ -100,9 +106,7 @@
 
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; Alternatively try `consult-completing-read-multiple'.
-  (defun crm-indicator (args)
-    (cons (concat "[CRM] " (car args)) (cdr args)))
-  (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+    (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
 
   ;; Do not allow the cursor in the minibuffer prompt
   (setq minibuffer-prompt-properties
@@ -137,7 +141,7 @@
   :custom
    (auth-sources '("~/.authinfo.gpg" "~/.netrc")))
 
-(setq default-directory "~/dev/")
+
 
 ;; often build emacs from source and prefix with /usr/local
 ;; packages with emacs support normally add files to /usr/share/emacs/site-lisp.
